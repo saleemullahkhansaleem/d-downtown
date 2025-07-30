@@ -80,7 +80,7 @@ const WhyChooseUs = () => {
             </span>
           </div>
           <h2 className="text-4xl lg:text-5xl font-black text-white mb-4 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-            Why Choose D Downtown?
+            Why Choose D-DOWNTOWN?
           </h2>
           <p className="text-lg text-blue-100 max-w-3xl mx-auto leading-relaxed">
             Discover the advantages that make us the preferred choice for smart
@@ -94,7 +94,7 @@ const WhyChooseUs = () => {
             return (
               <div
                 key={index}
-                className={`bg-white/10 backdrop-blur-xl p-6 rounded-3xl border border-white/20 hover:bg-white/20 transition-all duration-500 group hover:transform hover:scale-105 ${benefit.shadowColor} shadow-2xl hover:shadow-3xl`}
+                className={`bg-white/10 backdrop-blur-xl p-6 rounded-3xl border border-white/20 hover:bg-white/20 transition-all duration-500 group hover:transform hover:scale-[1.01] ${benefit.shadowColor} shadow-2xl hover:shadow-3xl`}
               >
                 <div
                   className={`bg-gradient-to-br ${benefit.color} w-16 h-16 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg`}

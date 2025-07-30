@@ -1,68 +1,153 @@
 import { useState } from "react";
-import { Menu, X, Phone, Sparkles } from "lucide-react";
+import {
+  Menu,
+  X,
+  Phone,
+  ChevronDown,
+  Building2,
+  FileText,
+  HelpCircle,
+  Camera,
+} from "lucide-react";
+import { Link } from "react-router-dom";
+import Logo from "./Logo";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  const navigationItems = [
+    { href: "/", label: "Home", icon: null },
+    {
+      label: "About",
+      icon: Building2,
+      items: [
+        { href: "/about-us", label: "About Us" },
+        { href: "/our-team", label: "Our Team" },
+        { href: "/project-portfolio", label: "Project Portfolio" },
+      ],
+    },
+    {
+      label: "Investment",
+      icon: FileText,
+      items: [
+        { href: "/investment-models", label: "Investment Models" },
+        { href: "/payment-pricing", label: "Payment & Pricing" },
+      ],
+    },
+    {
+      label: "Services",
+      icon: Building2,
+      items: [
+        { href: "/commercial-services", label: "Commercial Services" },
+        { href: "/location-connectivity", label: "Location & Connectivity" },
+      ],
+    },
+    { href: "/faqs", label: "FAQs", icon: HelpCircle },
+    { href: "/contact-us", label: "Contact", icon: null },
+    {
+      label: "Media",
+      icon: Camera,
+      items: [
+        { href: "/drone-shoots", label: "Drone Shoots & Visuals" },
+        { href: "/blog", label: "Blog Posts" },
+      ],
+    },
+  ];
+
+  const handleDropdownToggle = (label: string) => {
+    setActiveDropdown(activeDropdown === label ? null : label);
+  };
+
+  const closeDropdowns = () => {
+    setActiveDropdown(null);
+  };
 
   return (
     <header className="bg-white/70 backdrop-blur-xl shadow-2xl fixed w-full top-0 z-50 border-b border-gray-100">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <div className="bg-gradient-to-br from-blue-600 to-blue-800 p-1.5 rounded-xl shadow-lg">
-              <Sparkles className="w-5 h-5 text-white" />
+          <Link
+            to="/"
+            className="flex items-center space-x-2"
+            onClick={closeDropdowns}
+          >
+            <Logo size={40} className="h-10 text-blue-900" />
+
+            <div className="">
+              <div className="text-lg font-black bg-gradient-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent leading-5">
+                D{"-"}
+                <span className="bg-gradient-to-r from-amber-500 to-amber-600 bg-clip-text text-transparent">
+                  DOWNTOWN
+                </span>
+              </div>
+              <p className="text-blue-900 font-semibold text-[10px] leading-3 uppercase">
+                Future-Ready, Today
+              </p>
             </div>
-            <div className="text-xl font-black bg-gradient-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent">
-              D{" "}
-              <span className="bg-gradient-to-r from-amber-500 to-amber-600 bg-clip-text text-transparent">
-                DOWNTOWN
-              </span>
-            </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-2">
-            <a
-              href="#home"
-              className="text-gray-700 hover:text-blue-900 font-medium px-2 py-0.5 rounded hover:bg-blue-500/10 text-sm"
-            >
-              Home
-            </a>
-            <a
-              href="#about"
-              className="text-gray-700 hover:text-blue-900 font-medium px-2 py-0.5 rounded hover:bg-blue-500/10 text-sm"
-            >
-              About
-            </a>
-            <a
-              href="#location"
-              className="text-gray-700 hover:text-blue-900 font-medium px-2 py-0.5 rounded hover:bg-blue-500/10 text-sm"
-            >
-              Location
-            </a>
-            <a
-              href="#units"
-              className="text-gray-700 hover:text-blue-900 font-medium px-2 py-0.5 rounded hover:bg-blue-500/10 text-sm"
-            >
-              Units
-            </a>
-            <a
-              href="#gallery"
-              className="text-gray-700 hover:text-blue-900 font-medium px-2 py-0.5 rounded hover:bg-blue-500/10 text-sm"
-            >
-              Gallery
-            </a>
-            <a
-              href="#contact"
-              className="text-gray-700 hover:text-blue-900 font-medium px-2 py-0.5 rounded hover:bg-blue-500/10 text-sm"
-            >
-              Contact
-            </a>
+          <nav className="hidden lg:flex items-center space-x-1">
+            {navigationItems.map((item, index) => {
+              if (item.href) {
+                // Single page link
+                return (
+                  <Link
+                    key={index}
+                    to={item.href}
+                    className="text-gray-700 hover:text-blue-900 font-medium px-3 py-1.5 rounded hover:bg-blue-500/10 text-sm transition-all duration-300 flex items-center space-x-1"
+                    onClick={closeDropdowns}
+                  >
+                    {item.icon && <item.icon className="w-4 h-4" />}
+                    <span>{item.label}</span>
+                  </Link>
+                );
+              } else {
+                // Dropdown menu
+                return (
+                  <div key={index} className="relative">
+                    <button
+                      className="text-gray-700 hover:text-blue-900 font-medium px-3 py-1.5 rounded hover:bg-blue-500/10 text-sm transition-all duration-300 flex items-center space-x-1"
+                      onClick={() => handleDropdownToggle(item.label)}
+                      onMouseEnter={() => setActiveDropdown(item.label)}
+                    >
+                      {item.icon && <item.icon className="w-4 h-4" />}
+                      <span>{item.label}</span>
+                      <ChevronDown
+                        className={`w-3 h-3 transition-transform duration-200 ${
+                          activeDropdown === item.label ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+
+                    {/* Dropdown Menu */}
+                    {activeDropdown === item.label && (
+                      <div
+                        className="absolute top-full left-0 mt-1 w-64 bg-white/95 backdrop-blur-xl rounded-xl shadow-2xl border border-gray-100 py-2 z-50"
+                        onMouseLeave={() => setActiveDropdown(null)}
+                      >
+                        {item.items?.map((subItem, subIndex) => (
+                          <Link
+                            key={subIndex}
+                            to={subItem.href}
+                            className="block px-4 py-2.5 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-all duration-300 text-sm font-medium"
+                            onClick={closeDropdowns}
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+            })}
           </nav>
 
           {/* Contact Info */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden xl:flex items-center space-x-4">
             <div className="flex items-center space-x-2 bg-gradient-to-r from-green-50 to-green-100 px-3 py-1.5 rounded-full border border-green-200">
               <Phone className="w-4 h-4 text-green-600" />
               <span className="text-green-800 font-bold text-xs">
@@ -73,7 +158,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? (
@@ -86,44 +171,44 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100">
+          <div className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100 max-h-96 overflow-y-auto">
             <nav className="py-3 space-y-1">
-              <a
-                href="#home"
-                className="block px-4 py-2.5 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-all duration-300 font-semibold rounded-lg mx-2 text-sm"
-              >
-                Home
-              </a>
-              <a
-                href="#about"
-                className="block px-4 py-2.5 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-all duration-300 font-semibold rounded-lg mx-2 text-sm"
-              >
-                About
-              </a>
-              <a
-                href="#location"
-                className="block px-4 py-2.5 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-all duration-300 font-semibold rounded-lg mx-2 text-sm"
-              >
-                Location
-              </a>
-              <a
-                href="#units"
-                className="block px-4 py-2.5 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-all duration-300 font-semibold rounded-lg mx-2 text-sm"
-              >
-                Units
-              </a>
-              <a
-                href="#gallery"
-                className="block px-4 py-2.5 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-all duration-300 font-semibold rounded-lg mx-2 text-sm"
-              >
-                Gallery
-              </a>
-              <a
-                href="#contact"
-                className="block px-4 py-2.5 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-all duration-300 font-semibold rounded-lg mx-2 text-sm"
-              >
-                Contact
-              </a>
+              {navigationItems.map((item, index) => {
+                if (item.href) {
+                  // Single page link
+                  return (
+                    <Link
+                      key={index}
+                      to={item.href}
+                      className="block px-4 py-2.5 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-all duration-300 font-semibold rounded-lg mx-2 text-sm flex items-center space-x-2"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.icon && <item.icon className="w-4 h-4" />}
+                      <span>{item.label}</span>
+                    </Link>
+                  );
+                } else {
+                  // Dropdown section
+                  return (
+                    <div key={index}>
+                      <div className="px-4 py-2.5 text-gray-500 font-semibold text-xs uppercase tracking-wider flex items-center space-x-2">
+                        {item.icon && <item.icon className="w-4 h-4" />}
+                        <span>{item.label}</span>
+                      </div>
+                      {item.items?.map((subItem, subIndex) => (
+                        <Link
+                          key={subIndex}
+                          to={subItem.href}
+                          className="block px-8 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-all duration-300 font-medium rounded-lg mx-2 text-sm"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {subItem.label}
+                        </Link>
+                      ))}
+                    </div>
+                  );
+                }
+              })}
             </nav>
           </div>
         )}

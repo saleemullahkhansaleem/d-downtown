@@ -1,4 +1,3 @@
-import React from "react";
 import {
   MapPin,
   Phone,
@@ -8,16 +7,25 @@ import {
   Instagram,
   Linkedin,
 } from "lucide-react";
+import { Link } from "react-router-dom";
+import Logo from "./Logo";
 
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8">
           {/* Company Info */}
-          <div className="lg:col-span-2">
-            <div className="text-2xl font-bold mb-3">
-              D <span className="text-amber-500">DOWNTOWN</span>
+          <div className="">
+            <div className="mb-3 flex items-end space-x-2">
+              <Logo color="#ffffff" className="h-12 w-auto" />
+              <div>
+                <p className="text-2xl font-bold leading-tight">
+                  D-
+                  <span className="text-amber-500">DOWNTOWN</span>
+                </p>
+                <p className="uppercase text-xs">Future-Ready, Today</p>
+              </div>
             </div>
             <p className="text-gray-300 leading-relaxed mb-4 max-w-md text-sm">
               Rawalpindi's modern purpose-built commercial hub, featuring 10
@@ -47,62 +55,114 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="">
             <h3 className="text-base font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <a
-                  href="#home"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#about"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
-                >
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#location"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
-                >
-                  Location
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#units"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
-                >
-                  Units
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#gallery"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
-                >
-                  Gallery
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+              <ul className="space-y-0.5">
+                <li>
+                  <Link
+                    to="/"
+                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/about-us"
+                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                  >
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/project-portfolio"
+                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                  >
+                    Portfolio
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/investment-models"
+                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                  >
+                    Investment
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/payment-pricing"
+                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                  >
+                    Pricing
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/commercial-services"
+                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                  >
+                    Services
+                  </Link>
+                </li>
+              </ul>
+              <ul className="space-y-0.5">
+                <li>
+                  <Link
+                    to="/location-connectivity"
+                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                  >
+                    Location
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/our-team"
+                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                  >
+                    Our Team
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/faqs"
+                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                  >
+                    FAQs
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/drone-shoots"
+                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                  >
+                    Drone Shoots
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/blog"
+                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                  >
+                    Blog
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/contact-us"
+                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                  >
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Contact Info */}
-          <div>
+          <div className="">
             <h3 className="text-base font-semibold mb-4">Contact Info</h3>
             <div className="space-y-3">
               <div className="flex items-start space-x-2.5">
@@ -130,27 +190,21 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-8 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-xs">
-              © 2024 D Downtown. All rights reserved.
+              © 2024 D-DOWNTOWN. All rights reserved.
             </p>
             <div className="flex space-x-4 mt-3 md:mt-0">
-              <a
-                href="#"
+              <Link
+                to="/privacy-policy"
                 className="text-gray-400 hover:text-white transition-colors text-xs"
               >
                 Privacy Policy
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="/terms-of-service"
                 className="text-gray-400 hover:text-white transition-colors text-xs"
               >
                 Terms of Service
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors text-xs"
-              >
-                Legal
-              </a>
+              </Link>
             </div>
           </div>
         </div>

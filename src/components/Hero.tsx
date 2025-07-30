@@ -59,7 +59,7 @@ const Hero = () => {
                 </span>
               </div>
               <h1 className="text-4xl lg:text-6xl font-black leading-tight bg-gradient-to-r from-white via-blue-100 to-amber-200 bg-clip-text text-transparent">
-                D{" "}
+                D{"-"}
                 <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">
                   DOWNTOWN
                 </span>
@@ -125,7 +125,7 @@ const Hero = () => {
             <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-6 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group">
               <img
                 src={heroImages.plaza}
-                alt="D Downtown Commercial Plaza"
+                alt="D-DOWNTOWN Commercial Plaza"
                 className="w-full h-80 object-cover rounded-2xl"
               />
               <div className="mt-6 space-y-4 relative">

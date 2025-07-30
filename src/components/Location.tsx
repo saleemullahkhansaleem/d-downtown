@@ -75,18 +75,18 @@ const Location = () => {
           {/* Content */}
           <div className="space-y-6">
             <div>
-              <h3 className="text-2xl font-black text-gray-900 mb-4 flex items-center space-x-3">
+              <h3 className="text-xl font-black text-gray-900 mb-4 flex items-center space-x-3">
                 <Users className="w-6 h-6 text-blue-600" />
                 <span>7 Densely Populated Neighborhoods</span>
               </h3>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
+              <h3 className="text-lg font-bold text-gray-900 mb-4">
                 Surrounded by 7 Densely Populated Neighborhoods
               </h3>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="flex flex-wrap gap-2">
                 {neighborhoods.map((neighborhood, index) => (
                   <div
                     key={index}
-                    className="flex items-center space-x-2 bg-white p-2.5 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group"
+                    className="flex items-center space-x-2 bg-white px-2.5 py-1 rounded shadow hover:shadow-lg transition-all duration-300 group"
                   >
                     <div className="w-2.5 h-2.5 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full group-hover:scale-125 transition-transform duration-300"></div>
                     <span className="text-gray-800 font-semibold text-sm">
@@ -97,39 +97,39 @@ const Location = () => {
               </div>
             </div>
 
-            <div className="space-y-3">
-              <div className="flex items-center space-x-3 p-4 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group">
-                <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-2.5 rounded-xl group-hover:scale-110 transition-transform duration-300">
+            <div className="grid grid-cols-2 gap-2">
+              <div className="flex items-center space-x-3 p-2 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group">
+                <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-2.5 rounded-lg group-hover:scale-110 transition-transform duration-300">
                   <Clock className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900 text-base">
+                  <h4 className="font-semibold text-gray-900 text-sm">
                     Quick Access
                   </h4>
-                  <p className="text-gray-600 font-medium text-sm">
+                  <p className="text-gray-600 font-medium text-xs">
                     Saddar GPO & GT Road
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-center space-x-3 p-4 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group">
-                <div className="bg-gradient-to-br from-amber-500 to-amber-600 p-2.5 rounded-xl group-hover:scale-110 transition-transform duration-300">
+              <div className="flex items-center space-x-3 p-2 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group">
+                <div className="bg-gradient-to-br from-amber-500 to-amber-600 p-2.5 rounded-lg group-hover:scale-110 transition-transform duration-300">
                   <MapPin className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900 text-base">
+                  <h4 className="font-semibold text-gray-900 text-sm">
                     Heavy Daily Footfall
                   </h4>
-                  <p className="text-gray-600 font-medium text-sm">
+                  <p className="text-gray-600 font-medium text-xs">
                     High-demand urban zone
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border border-blue-200 relative overflow-hidden">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-2xl border border-blue-200 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-24 h-24 bg-blue-200/30 rounded-full blur-2xl"></div>
-              <h4 className="font-black text-blue-900 mb-3 text-lg relative z-10">
+              <h4 className="font-black text-blue-900 mb-2 text-lg relative z-10">
                 🎯 No Competition
               </h4>
               <p className="text-blue-800 leading-relaxed font-medium relative z-10 text-sm">

@@ -1,27 +1,53 @@
-import React from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Location from './components/Location';
-import Approvals from './components/Approvals';
-import WhyChooseUs from './components/WhyChooseUs';
-import CommercialUnits from './components/CommercialUnits';
-import Brands from './components/Brands';
-import BookingSection from './components/BookingSection';
-import Footer from './components/Footer';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import AboutUs from "./pages/AboutUs";
+import ProjectPortfolio from "./pages/ProjectPortfolio";
+import InvestmentModels from "./pages/InvestmentModels";
+import PaymentPricing from "./pages/PaymentPricing";
+import CommercialServices from "./pages/CommercialServices";
+import LocationConnectivity from "./pages/LocationConnectivity";
+import OurTeam from "./pages/OurTeam";
+import FAQs from "./pages/FAQs";
+import ContactUs from "./pages/ContactUs";
+import DroneShoots from "./pages/DroneShoots";
+import Blog from "./pages/Blog";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 
 function App() {
   return (
-    <div className="min-h-screen">
-      <Header />
-      <Hero />
-      <Location />
-      <Approvals />
-      <WhyChooseUs />
-      <CommercialUnits />
-      <Brands />
-      <BookingSection />
-      <Footer />
-    </div>
+    <Router>
+      <div className="min-h-screen">
+        <Header />
+        <main className="pt-14">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/project-portfolio" element={<ProjectPortfolio />} />
+            <Route path="/investment-models" element={<InvestmentModels />} />
+            <Route path="/payment-pricing" element={<PaymentPricing />} />
+            <Route
+              path="/commercial-services"
+              element={<CommercialServices />}
+            />
+            <Route
+              path="/location-connectivity"
+              element={<LocationConnectivity />}
+            />
+            <Route path="/our-team" element={<OurTeam />} />
+            <Route path="/faqs" element={<FAQs />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/drone-shoots" element={<DroneShoots />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
