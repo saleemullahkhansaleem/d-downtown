@@ -148,12 +148,15 @@ const Header = () => {
 
           {/* Contact Info */}
           <div className="hidden xl:flex items-center space-x-4">
-            <div className="flex items-center space-x-2 bg-gradient-to-r from-green-50 to-green-100 px-3 py-1.5 rounded-full border border-green-200">
+            <a
+              href="tel:0313-055-2222"
+              className="flex items-center space-x-2 bg-gradient-to-r from-green-50 to-green-100 px-3 py-1.5 rounded-full border border-green-200 hover:from-green-100 hover:to-green-200 transition-all duration-300 cursor-pointer"
+            >
               <Phone className="w-4 h-4 text-green-600" />
               <span className="text-green-800 font-bold text-xs">
                 0313-055-2222
               </span>
-            </div>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
