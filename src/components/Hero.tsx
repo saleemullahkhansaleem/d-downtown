@@ -124,7 +124,7 @@ const Hero = () => {
           <div className="relative animate-fade-in-up delay-300">
             <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-6 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group">
               <img
-                src={heroImages.plaza}
+                src={heroImages.background}
                 alt="D-DOWNTOWN Commercial Plaza"
                 className="w-full h-80 object-cover rounded-2xl"
               />

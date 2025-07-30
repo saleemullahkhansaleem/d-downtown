@@ -10,3 +10,4 @@ export { default as ContactForm } from "./ContactForm";
 export { default as Location } from "./Location";
 export { default as UnderConstruction } from "./UnderConstruction";
 export { default as Approvals } from "./Approvals";
+export { default as CTASection } from "./CTASection";

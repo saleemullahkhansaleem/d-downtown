@@ -9,9 +9,10 @@ import {
   CheckCircle,
   Star,
   TrendingUp,
+  Calculator,
 } from "lucide-react";
-import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero";
+import CTASection from "../components/CTASection";
 
 const AboutUs = () => {
   const features = [
@@ -65,7 +66,7 @@ const AboutUs = () => {
       />
 
       {/* Main Content */}
-      <section className="px-4 pb-16">
+      <section className="px-4 py-16">
         <div className="container mx-auto max-w-6xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             {/* Left Column - Main Content */}
@@ -251,27 +252,27 @@ const AboutUs = () => {
               </div>
             </div>
           </div>
-
-          {/* Vision Section */}
-          <div className="bg-gradient-to-br from-amber-50 via-white to-blue-50 rounded-3xl p-8 shadow-xl border border-amber-100 text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Our Vision
-            </h2>
-            <p className="text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto mb-8">
-              At D-Downtown, we are creating more than just retail space. We are
-              building a long-term business ecosystem with convenience,
-              connectivity, and commercial value at its core.
-            </p>
-            <Link
-              to="/contact-us"
-              className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-            >
-              <span>Get Started Today</span>
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
         </div>
       </section>
+
+      {/* CTA Section */}
+      <CTASection
+        title="Ready to Join D-DOWNTOWN?"
+        subtitle="Rawalpindi's Premier Commercial Hub"
+        description="Take the first step towards securing your commercial space in Rawalpindi's most strategic location. Our team is ready to guide you through every step of your investment journey."
+        badgeText="Get Started"
+        badgeIcon={Star}
+        primaryAction={{
+          text: "Contact Us Today",
+          href: "/contact-us",
+          icon: ArrowRight,
+        }}
+        secondaryAction={{
+          text: "View Pricing",
+          href: "/payment-pricing",
+          icon: Calculator,
+        }}
+      />
     </div>
   );
 };

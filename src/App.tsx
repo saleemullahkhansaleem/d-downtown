@@ -15,6 +15,7 @@ import DroneShoots from "./pages/DroneShoots";
 import Blog from "./pages/Blog";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />

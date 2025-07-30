@@ -6,9 +6,12 @@ import {
   Target,
   Award,
   ArrowRight,
+  Linkedin,
+  Instagram,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero";
+import CTASection from "../components/CTASection";
 import { teamImages } from "../assets/images/team";
 
 const OurTeam = () => {
@@ -17,6 +20,8 @@ const OurTeam = () => {
       name: "Khawar Abbasi",
       position: "Chief Executive Officer",
       email: "CEO@d-downtown.com",
+      linkedin: "https://linkedin.com/in/khawar-abbasi",
+      instagram: "https://instagram.com/khawar_abbasi",
       description:
         "Founder and head of the project. Leads all development, finances it, and manages every decision from planning to execution.",
       color: "from-blue-600 to-blue-800",
@@ -164,7 +169,7 @@ const OurTeam = () => {
       />
 
       {/* Main Content */}
-      <section className="px-4 pb-16">
+      <section className="px-4 py-16">
         <div className="container mx-auto max-w-6xl">
           {/* Leadership Section */}
           <div className="mb-16">
@@ -178,7 +183,7 @@ const OurTeam = () => {
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-1 gap-8">
+            <div className="grid lg:grid-cols-1 gap-8 max-w-4xl mx-auto">
               {leadership.map((member, index) => (
                 <div
                   key={index}
@@ -186,7 +191,7 @@ const OurTeam = () => {
                 >
                   <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6">
                     <div className="relative">
-                      <div className="w-28 h-28 lg:w-36 lg:h-36 rounded-2xl overflow-hidden border-4 border-white shadow-lg">
+                      <div className="h-32 lg:h-48 aspect-square rounded-2xl overflow-hidden border-4 border-white shadow-lg">
                         <img
                           src={member.image}
                           alt={member.name}
@@ -216,13 +221,35 @@ const OurTeam = () => {
                         >
                           {member.position}
                         </p>
-                        <a
-                          href={`mailto:${member.email}`}
-                          className="inline-flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors text-sm"
-                        >
-                          <Mail className="w-4 h-4" />
-                          <span>{member.email}</span>
-                        </a>
+                        <div className="flex items-center justify-center lg:justify-start space-x-3 mb-3">
+                          <a
+                            href={`mailto:${member.email}`}
+                            className="inline-flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors text-sm"
+                          >
+                            <Mail className="w-4 h-4" />
+                            <span>{member.email}</span>
+                          </a>
+                          {member.linkedin && (
+                            <a
+                              href={member.linkedin}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-gray-600 hover:text-blue-600 transition-colors"
+                            >
+                              <Linkedin className="w-4 h-4" />
+                            </a>
+                          )}
+                          {member.instagram && (
+                            <a
+                              href={member.instagram}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-gray-600 hover:text-pink-600 transition-colors"
+                            >
+                              <Instagram className="w-4 h-4" />
+                            </a>
+                          )}
+                        </div>
                       </div>
                       <p className="text-gray-700 leading-relaxed text-sm lg:text-base">
                         {member.description}
@@ -250,49 +277,72 @@ const OurTeam = () => {
               {seniorManagement.map((member, index) => (
                 <div
                   key={index}
-                  className="bg-white/80 backdrop-blur-xl rounded-2xl p-5 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300"
+                  className="bg-white/80 backdrop-blur-xl rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden"
                 >
-                  <div className="text-center mb-4">
-                    <div className="relative mx-auto mb-3">
-                      <div className="w-24 h-24 rounded-xl overflow-hidden border-3 border-white shadow-lg mx-auto">
-                        <img
-                          src={member.image}
-                          alt={member.name}
-                          className="w-full h-full object-cover"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.style.display = "none";
-                            target.nextElementSibling?.classList.remove(
-                              "hidden"
-                            );
-                          }}
-                        />
-                        <div
-                          className={`w-full h-full bg-gradient-to-br ${member.color} flex items-center justify-center hidden`}
-                        >
-                          <member.icon className="w-8 h-8 text-white" />
-                        </div>
+                  <div className="relative mx-auto">
+                    <div className="w-full aspect-square">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = "none";
+                          target.nextElementSibling?.classList.remove("hidden");
+                        }}
+                      />
+                      <div
+                        className={`w-full h-full bg-gradient-to-br ${member.color} flex items-center justify-center hidden`}
+                      >
+                        <member.icon className="w-6 h-6 text-white" />
                       </div>
                     </div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-1">
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-lg font-bold text-gray-900">
                       {member.name}
                     </h3>
                     <p
-                      className={`text-sm font-semibold bg-gradient-to-r ${member.color} bg-clip-text text-transparent mb-2`}
+                      className={`text-sm font-semibold bg-gradient-to-r ${member.color} bg-clip-text text-transparent mb-1`}
                     >
                       {member.position}
                     </p>
-                    <a
-                      href={`mailto:${member.email}`}
-                      className="inline-flex items-center space-x-1 text-gray-600 hover:text-blue-600 transition-colors text-sm"
-                    >
-                      <Mail className="w-3 h-3" />
-                      <span>{member.email}</span>
-                    </a>
+                    <div className="flex items-center space-x-3 mt-3">
+                      <a
+                        href={`mailto:${member.email}`}
+                        className="text-gray-600 hover:text-blue-600 transition-colors"
+                        title={member.email}
+                      >
+                        <Mail className="w-4 h-4" />
+                      </a>
+                      <a
+                        href={`https://linkedin.com/in/${member.name
+                          .toLowerCase()
+                          .replace(/\s+/g, "-")}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-600 hover:text-blue-600 transition-colors"
+                        title="LinkedIn"
+                      >
+                        <Linkedin className="w-4 h-4" />
+                      </a>
+                      <a
+                        href={`https://instagram.com/${member.name
+                          .toLowerCase()
+                          .replace(/\s+/g, "_")}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-600 hover:text-pink-600 transition-colors"
+                        title="Instagram"
+                      >
+                        <Instagram className="w-4 h-4" />
+                      </a>
+                    </div>
+                    <hr className="my-2" />
+                    <p className="text-gray-700 text-xs leading-relaxed">
+                      {member.description}
+                    </p>
                   </div>
-                  <p className="text-gray-700 text-sm leading-relaxed">
-                    {member.description}
-                  </p>
                 </div>
               ))}
             </div>
@@ -310,35 +360,33 @@ const OurTeam = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-5">
+            <div className="grid md:grid-cols-3 gap-5 max-w-4xl mx-auto">
               {midLevel.map((member, index) => (
                 <div
                   key={index}
-                  className="bg-white/80 backdrop-blur-xl rounded-xl p-4 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300"
+                  className="bg-white/80 backdrop-blur-xl rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden"
                 >
-                  <div className="text-center mb-3">
-                    <div className="relative mx-auto mb-2">
-                      <div className="w-20 h-20 rounded-lg overflow-hidden border-2 border-white shadow-md mx-auto">
-                        <img
-                          src={member.image}
-                          alt={member.name}
-                          className="w-full h-full object-cover"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.style.display = "none";
-                            target.nextElementSibling?.classList.remove(
-                              "hidden"
-                            );
-                          }}
-                        />
-                        <div
-                          className={`w-full h-full bg-gradient-to-br ${member.color} flex items-center justify-center hidden`}
-                        >
-                          <member.icon className="w-6 h-6 text-white" />
-                        </div>
+                  <div className="relative mx-auto">
+                    <div className="w-full aspect-square ">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = "none";
+                          target.nextElementSibling?.classList.remove("hidden");
+                        }}
+                      />
+                      <div
+                        className={`w-full h-full bg-gradient-to-br ${member.color} flex items-center justify-center hidden`}
+                      >
+                        <member.icon className="w-6 h-6 text-white" />
                       </div>
                     </div>
-                    <h3 className="text-base font-bold text-gray-900 mb-1">
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-lg font-bold text-gray-900">
                       {member.name}
                     </h3>
                     <p
@@ -346,17 +394,43 @@ const OurTeam = () => {
                     >
                       {member.position}
                     </p>
-                    <a
-                      href={`mailto:${member.email}`}
-                      className="inline-flex items-center space-x-1 text-gray-600 hover:text-blue-600 transition-colors text-sm"
-                    >
-                      <Mail className="w-3 h-3" />
-                      <span className="text-xs">{member.email}</span>
-                    </a>
+                    <div className="flex items-center space-x-3 mt-3">
+                      <a
+                        href={`mailto:${member.email}`}
+                        className="text-gray-600 hover:text-blue-600 transition-colors"
+                        title={member.email}
+                      >
+                        <Mail className="w-4 h-4" />
+                      </a>
+                      <a
+                        href={`https://linkedin.com/in/${member.name
+                          .toLowerCase()
+                          .replace(/\s+/g, "-")}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-600 hover:text-blue-600 transition-colors"
+                        title="LinkedIn"
+                      >
+                        <Linkedin className="w-4 h-4" />
+                      </a>
+                      <a
+                        href={`https://instagram.com/${member.name
+                          .toLowerCase()
+                          .replace(/\s+/g, "_")}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-600 hover:text-pink-600 transition-colors"
+                        title="Instagram"
+                      >
+                        <Instagram className="w-4 h-4" />
+                      </a>
+                    </div>
+                    <hr className="my-2" />
+
+                    <p className="text-gray-700 text-xs leading-relaxed">
+                      {member.description}
+                    </p>
                   </div>
-                  <p className="text-gray-700 text-sm leading-relaxed">
-                    {member.description}
-                  </p>
                 </div>
               ))}
             </div>
@@ -412,34 +486,32 @@ const OurTeam = () => {
               </div>
             </div>
           </div>
-
-          {/* CTA Section */}
-          <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl p-8 shadow-2xl text-center text-white">
-            <h2 className="text-3xl font-bold mb-4">Join Our Team</h2>
-            <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
-              Interested in being part of the D-DOWNTOWN success story? We're
-              always looking for talented professionals who share our vision for
-              excellence.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="mailto:Admin@d-downtown.com"
-                className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-              >
-                <Mail className="w-5 h-5" />
-                <span>Send Your Resume</span>
-              </a>
-              <Link
-                to="/contact-us"
-                className="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-              >
-                <span>Get in Touch</span>
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </div>
-          </div>
         </div>
       </section>
+
+      {/* CTA Section */}
+      <CTASection
+        title="Join Our Team"
+        subtitle="Be Part of the D-DOWNTOWN Success Story"
+        description="We're always looking for talented professionals who share our vision for excellence. Join our dynamic team and contribute to Rawalpindi's premier commercial development."
+        badgeText="Career Opportunities"
+        badgeIcon={Users}
+        primaryAction={{
+          text: "Send Your Resume",
+          href: "mailto:Admin@d-downtown.com",
+          icon: Mail,
+        }}
+        secondaryAction={{
+          text: "Get in Touch",
+          href: "/contact-us",
+          icon: ArrowRight,
+        }}
+        gradientColors={{
+          from: "from-blue-900",
+          via: "via-indigo-900",
+          to: "to-purple-900",
+        }}
+      />
     </div>
   );
 };
