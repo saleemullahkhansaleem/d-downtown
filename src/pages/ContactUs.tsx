@@ -105,7 +105,7 @@ const ContactUs = () => {
       />
 
       {/* Main Content */}
-      <section className="px-4 pb-16">
+      <section className="px-4 py-16">
         <div className="container mx-auto max-w-6xl">
           {/* Contact Methods Grid */}
           <div className="grid md:grid-cols-3 gap-6 mb-16">

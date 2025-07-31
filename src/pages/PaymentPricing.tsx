@@ -386,7 +386,7 @@ const PaymentPricing = () => {
       </section>
 
       {/* Payment Process */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 bg-amber-50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -398,15 +398,15 @@ const PaymentPricing = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {paymentSteps.map((step, index) => {
               const IconComponent = step.icon;
               return (
                 <div
                   key={index}
-                  className="bg-white/80 backdrop-blur-xl rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 group"
+                  className="bg-white/80 backdrop-blur-xl rounded-2xl p-4 border border-gray-200 hover:shadow-lg transition-all duration-300 group flex justify-between items-center gap-4"
                 >
-                  <div className="flex items-center space-x-4 mb-4">
+                  <div className="flex items-center space-x-4">
                     <div
                       className={`bg-gradient-to-r ${step.color} w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-all duration-300`}
                     >

@@ -185,7 +185,7 @@ const AboutUs = () => {
           </div>
 
           {/* Management & Investment Section */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl p-8 text-white shadow-2xl">
               <h2 className="text-3xl font-bold mb-6">In-House Management</h2>
               <p className="text-blue-100 leading-relaxed mb-6">

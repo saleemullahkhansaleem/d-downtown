@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { MapPin, Phone, Globe, Calendar, CheckCircle } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Globe,
+  Calendar,
+  CheckCircle,
+  Mail,
+} from "lucide-react";
 import ContactForm from "./ContactForm";
 
 const BookingSection = () => {
@@ -106,13 +113,11 @@ const BookingSection = () => {
 
               <div className="flex items-center space-x-3">
                 <div className="bg-purple-100 p-2.5 rounded-full">
-                  <Globe className="w-5 h-5 text-purple-700" />
+                  <Mail className="w-5 h-5 text-purple-700" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 text-sm">
-                    Website
-                  </h4>
-                  <p className="text-gray-600 text-xs">www.d-downtown.com</p>
+                  <h4 className="font-semibold text-gray-900 text-sm">Email</h4>
+                  <p className="text-gray-600 text-xs">info@d-downtown.com</p>
                 </div>
               </div>
             </div>

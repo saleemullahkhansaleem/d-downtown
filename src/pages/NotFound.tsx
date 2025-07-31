@@ -1,13 +1,20 @@
 import { Link } from "react-router-dom";
-import { Home, ArrowLeft, Search, MapPin, Building2 } from "lucide-react";
+import {
+  Home,
+  ArrowLeft,
+  Search,
+  MapPin,
+  Building2,
+  HelpCircle,
+} from "lucide-react";
 import Logo from "../components/Logo";
 
 const NotFound = () => {
   const quickLinks = [
-    { href: "/", label: "Home", icon: Home },
-    { href: "/about-us", label: "About Us", icon: Building2 },
-    { href: "/project-portfolio", label: "Portfolio", icon: MapPin },
-    { href: "/contact-us", label: "Contact", icon: Search },
+    { href: "/project-portfolio", label: "Portfolio", icon: Building2 },
+    { href: "/payment-pricing", label: "Pricing", icon: Search },
+    { href: "/location-connectivity", label: "Location", icon: MapPin },
+    { href: "/faqs", label: "FAQs", icon: HelpCircle },
   ];
 
   return (
@@ -63,10 +70,10 @@ const NotFound = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
                 Oops! Page Not Found
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 The page you're looking for seems to have wandered off to
                 explore our
-                <span className="font-semibold text-amber-600">
+                <span className="font-semibold text-amber-600 text-nowrap">
                   {" "}
                   D-DOWNTOWN{" "}
                 </span>
@@ -76,7 +83,7 @@ const NotFound = () => {
             </div>
 
             {/* Construction-themed illustration */}
-            <div className="mb-12 animate-fade-in-up delay-500">
+            {/* <div className="mb-12 animate-fade-in-up delay-500">
               <div className="inline-flex items-center justify-center p-6 bg-gradient-to-r from-amber-100 to-blue-100 rounded-2xl border border-amber-200/50 shadow-lg">
                 <div className="flex items-center space-x-4">
                   <div className="w-16 h-16 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full flex items-center justify-center shadow-lg">
@@ -92,7 +99,7 @@ const NotFound = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Action Buttons */}

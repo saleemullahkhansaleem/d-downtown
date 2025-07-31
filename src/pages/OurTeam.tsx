@@ -9,7 +9,6 @@ import {
   Linkedin,
   Instagram,
 } from "lucide-react";
-import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero";
 import CTASection from "../components/CTASection";
 import { teamImages } from "../assets/images/team";
@@ -303,7 +302,7 @@ const OurTeam = () => {
                       {member.name}
                     </h3>
                     <p
-                      className={`text-sm font-semibold bg-gradient-to-r ${member.color} bg-clip-text text-transparent mb-1`}
+                      className={`text-sm font-medium bg-gradient-to-r ${member.color} bg-clip-text text-transparent mb-1`}
                     >
                       {member.position}
                     </p>
@@ -437,7 +436,7 @@ const OurTeam = () => {
           </div>
 
           {/* Team Stats Section */}
-          <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 shadow-xl border border-white/20 mb-16">
+          <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 shadow-xl border border-white/20">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 Our Team at a Glance

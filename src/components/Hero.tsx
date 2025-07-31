@@ -47,8 +47,8 @@ const Hero = () => {
         }}
       ></div>
 
-      <div className="relative container mx-auto px-4 pt-24 pb-16">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-10rem)]">
+      <div className="relative container mx-auto px-4 py-12">
+        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-9.5rem)]">
           {/* Left Content */}
           <div className="text-white space-y-6 animate-fade-in-up">
             <div className="space-y-4">
