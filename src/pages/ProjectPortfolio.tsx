@@ -21,6 +21,7 @@ import {
   Phone,
 } from "lucide-react";
 import { PageHero, CTASection, SEO } from "../components";
+import { floorPlanImages } from "../assets/images";
 
 const ProjectPortfolio = () => {
   const unitTypes = [
@@ -97,6 +98,7 @@ const ProjectPortfolio = () => {
       ],
       color: "from-gray-600 to-gray-800",
       icon: Square,
+      image: floorPlanImages.lowerGround,
     },
     {
       floor: "Ground Floor (18 Feet Height)",
@@ -111,6 +113,7 @@ const ProjectPortfolio = () => {
       ],
       color: "from-blue-600 to-blue-800",
       icon: Store,
+      image: floorPlanImages.groundFloor,
     },
     {
       floor: "Mezzanine Floor",
@@ -121,6 +124,7 @@ const ProjectPortfolio = () => {
       areas: [{ shop: "Shop Number 3 to 5", area: "361 Sq. ft" }],
       color: "from-purple-600 to-purple-800",
       icon: Building,
+      image: floorPlanImages.mezzanine,
     },
     {
       floor: "First Floor",
@@ -135,6 +139,7 @@ const ProjectPortfolio = () => {
       ],
       color: "from-green-600 to-green-800",
       icon: Building2,
+      image: floorPlanImages.firstFloor,
     },
     {
       floor: "Second Floor",
@@ -149,6 +154,7 @@ const ProjectPortfolio = () => {
       ],
       color: "from-amber-600 to-amber-800",
       icon: Building2,
+      image: floorPlanImages.secondFloor,
     },
   ];
 
@@ -374,6 +380,26 @@ const ProjectPortfolio = () => {
                   <p className="text-gray-700 mb-6 leading-relaxed">
                     {layout.description}
                   </p>
+
+                  {/* Full Width Floor Plan Image */}
+                  <div className="mb-6">
+                    <div className="relative w-full rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+                      <img
+                        src={layout.image}
+                        alt={`${layout.floor} Floor Plan`}
+                        className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                      <div className="absolute bottom-4 left-4">
+                        <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg">
+                          <span className="font-bold text-gray-900 text-sm">
+                            {layout.floor} Floor Plan
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
                   <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-6 border border-gray-100">
                     <h4 className="font-bold text-gray-900 mb-4 flex items-center space-x-2 text-lg">

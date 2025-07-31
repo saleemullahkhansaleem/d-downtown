@@ -1,4 +1,3 @@
-import React from "react";
 import { Square, DollarSign, Eye } from "lucide-react";
 
 const CommercialUnits = () => {
