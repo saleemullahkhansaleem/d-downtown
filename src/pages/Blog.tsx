@@ -14,8 +14,7 @@ import {
   Award,
   MessageSquareText,
 } from "lucide-react";
-import PageHero from "../components/PageHero";
-import CTASection from "../components/CTASection";
+import { PageHero, CTASection } from "../components";
 
 const Blog = () => {
   const featuredPost = {

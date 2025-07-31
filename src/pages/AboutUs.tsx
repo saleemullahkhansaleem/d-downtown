@@ -11,8 +11,7 @@ import {
   Calculator,
   MessageSquareText,
 } from "lucide-react";
-import PageHero from "../components/PageHero";
-import CTASection from "../components/CTASection";
+import { PageHero, CTASection } from "../components";
 
 const AboutUs = () => {
   const features = [

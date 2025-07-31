@@ -8,8 +8,7 @@ import {
   Linkedin,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import Logo from "./Logo";
-import MrCard from "./MrCard";
+import { Logo, MrCard } from "../common";
 
 const Footer = () => {
   return (

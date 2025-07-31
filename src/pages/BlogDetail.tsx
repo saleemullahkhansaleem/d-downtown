@@ -15,8 +15,7 @@ import {
   ThumbsUp,
   MessageSquare,
 } from "lucide-react";
-import PageHero from "../components/PageHero";
-import CTASection from "../components/CTASection";
+import { PageHero, CTASection } from "../components";
 
 const BlogDetail = () => {
   const { id } = useParams();

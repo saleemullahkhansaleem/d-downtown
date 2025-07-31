@@ -7,8 +7,7 @@ import {
   Mail,
   MapPin,
 } from "lucide-react";
-import PageHero from "../components/PageHero";
-import CTASection from "../components/CTASection";
+import { PageHero, CTASection } from "../components";
 
 interface FAQItem {
   question: string;

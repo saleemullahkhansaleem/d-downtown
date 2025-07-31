@@ -11,8 +11,7 @@ import {
   Users,
   TrendingUp,
 } from "lucide-react";
-import PageHero from "../components/PageHero";
-import CTASection from "../components/CTASection";
+import { PageHero, CTASection } from "../components";
 
 const LocationConnectivity = () => {
   const roadAccess = ["Adyala Road", "GT Road", "Saddar"];

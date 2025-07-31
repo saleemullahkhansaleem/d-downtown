@@ -1,11 +1,11 @@
 import { Github, Linkedin, ExternalLink, Youtube, Laptop } from "lucide-react";
 import { useState } from "react";
-import mrImage from "../assets/images/mr.png";
+import { backgroundImages } from "../../assets";
 
 const mrData = {
   name: "Mr Saleem",
   title: "Full Stack Developer",
-  photoUrl: mrImage,
+  photoUrl: backgroundImages.mr,
   portfolioUrl: "http://mrsaleem.vercel.app",
   githubUrl: "https://github.com/saleemullahkhansaleem",
   linkedinUrl: "https://www.linkedin.com/in/mrsaleem/",

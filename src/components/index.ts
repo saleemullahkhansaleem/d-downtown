@@ -1,13 +1,8 @@
-export { default as Logo } from "./Logo";
-export { default as Header } from "./Header";
-export { default as Footer } from "./Footer";
-export { default as Hero } from "./Hero";
-export { default as WhyChooseUs } from "./WhyChooseUs";
-export { default as BookingSection } from "./BookingSection";
-export { default as Brands } from "./Brands";
-export { default as CommercialUnits } from "./CommercialUnits";
-export { default as ContactForm } from "./ContactForm";
-export { default as Location } from "./Location";
-export { default as UnderConstruction } from "./UnderConstruction";
-export { default as Approvals } from "./Approvals";
-export { default as CTASection } from "./CTASection";
+// Layout components
+export * from "./layout";
+
+// Home components
+export * from "./home";
+
+// Common components
+export * from "./common";

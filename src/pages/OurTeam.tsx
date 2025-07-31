@@ -9,9 +9,8 @@ import {
   Linkedin,
   Instagram,
 } from "lucide-react";
-import PageHero from "../components/PageHero";
-import CTASection from "../components/CTASection";
-import { teamImages } from "../assets/images/team";
+import { PageHero, CTASection } from "../components";
+import { teamImages } from "../assets";
 
 const OurTeam = () => {
   const teamMembers = [

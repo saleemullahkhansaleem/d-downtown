@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MapPin, Phone, Calendar, CheckCircle, Mail } from "lucide-react";
-import ContactForm from "./ContactForm";
+import { ContactForm } from "../common";
 
 const BookingSection = () => {
   const [showForm, setShowForm] = useState(false);

@@ -12,8 +12,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { useState } from "react";
-import PageHero from "../components/PageHero";
-import CTASection from "../components/CTASection";
+import { PageHero, CTASection } from "../components";
 
 const PaymentPricing = () => {
   const [activeFloor, setActiveFloor] = useState("lower-ground");

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MapPin, Award, Calendar, ArrowRight, Sparkles } from "lucide-react";
-import ContactForm from "./ContactForm";
-import { heroImages } from "../assets/images";
+import { ContactForm } from "../common";
+import { backgroundImages } from "../../assets";
 
 // Dynamic features data
 const keyFeatures = [
@@ -43,7 +43,7 @@ const Hero = () => {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
         style={{
-          backgroundImage: `url(${heroImages.background})`,
+          backgroundImage: `url(${backgroundImages.hero})`,
         }}
       ></div>
 
@@ -124,7 +124,7 @@ const Hero = () => {
           <div className="relative animate-fade-in-up delay-300">
             <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-6 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group">
               <img
-                src={heroImages.background}
+                src={backgroundImages.hero}
                 alt="D-DOWNTOWN Commercial Plaza"
                 className="w-full h-80 object-cover rounded-2xl"
               />

@@ -10,7 +10,7 @@ import {
   Camera,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import Logo from "./Logo";
+import { Logo } from "../common";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

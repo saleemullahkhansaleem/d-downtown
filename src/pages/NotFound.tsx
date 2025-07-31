@@ -7,7 +7,7 @@ import {
   Building2,
   HelpCircle,
 } from "lucide-react";
-import Logo from "../components/Logo";
+import { Logo } from "../components";
 
 const NotFound = () => {
   const quickLinks = [

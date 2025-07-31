@@ -1,5 +1,5 @@
 import { LucideIcon } from "lucide-react";
-import { heroImages } from "../assets/images";
+import { backgroundImages } from "../../assets";
 
 interface PageHeroProps {
   icon: LucideIcon;
@@ -26,7 +26,7 @@ const PageHero = ({
     <section
       className="relative pt-20 pb-16 px-4 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden"
       style={{
-        backgroundImage: `url(${heroImages.background})`,
+        backgroundImage: `url(${backgroundImages.hero})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
