@@ -5,11 +5,11 @@ import {
   Calculator,
   Clock,
   Star,
-  ArrowRight,
   CheckCircle,
   DollarSign,
   Percent,
   Award,
+  MessageSquareText,
 } from "lucide-react";
 import PageHero from "../components/PageHero";
 import CTASection from "../components/CTASection";
@@ -279,7 +279,7 @@ const InvestmentModels = () => {
         primaryAction={{
           text: "Contact Investment Team",
           href: "/contact-us",
-          icon: ArrowRight,
+          icon: MessageSquareText,
         }}
         secondaryAction={{
           text: "View Pricing Details",

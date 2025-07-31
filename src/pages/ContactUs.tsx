@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero";
+import CTASection from "../components/CTASection";
 
 const ContactUs = () => {
   const contactMethods = [
@@ -270,7 +271,7 @@ const ContactUs = () => {
           </div>
 
           {/* Business Hours & Support */}
-          <div className="grid lg:grid-cols-2 gap-12 mb-16">
+          <div className="grid lg:grid-cols-2 gap-12">
             <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-3xl p-8 text-white shadow-2xl">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
@@ -341,34 +342,26 @@ const ContactUs = () => {
               </div>
             </div>
           </div>
-
-          {/* CTA Section */}
-          <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl p-8 shadow-2xl text-center text-white">
-            <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
-            <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
-              Join the future of commercial excellence in Rawalpindi. Contact us
-              today to explore investment opportunities and become part of
-              D-DOWNTOWN.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:0313-055-2222"
-                className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-              >
-                <Phone className="w-5 h-5" />
-                <span>Call Us Now</span>
-              </a>
-              <Link
-                to="/investment-models"
-                className="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-              >
-                <span>Explore Opportunities</span>
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </div>
-          </div>
         </div>
       </section>
+      {/* CTA Section */}
+      <CTASection
+        title="Ready to Get Started?"
+        subtitle="Join D-DOWNTOWN Today"
+        description="Join the future of commercial excellence in Rawalpindi. Contact us today to explore investment opportunities and become part of D-DOWNTOWN."
+        badgeText="Get Started"
+        badgeIcon={Star}
+        primaryAction={{
+          text: "Call Us Now",
+          href: "tel:0313-055-2222",
+          icon: Phone,
+        }}
+        secondaryAction={{
+          text: "Explore Opportunities",
+          href: "/investment-models",
+          icon: ArrowRight,
+        }}
+      />
     </div>
   );
 };

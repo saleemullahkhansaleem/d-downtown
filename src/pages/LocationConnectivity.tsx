@@ -73,14 +73,14 @@ const LocationConnectivity = () => {
                 </div>
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-blue-100">
                   <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    D Downtown
+                    D-Downtown
                   </h3>
                   <p className="text-gray-600 text-lg">
                     Sector 3 Rawalpindi, 46000, Pakistan
                   </p>
 
                   {/* Google Map Placeholder */}
-                  <div className="mt-6 bg-gray-100 rounded-xl h-64 flex items-center justify-center border-2 border-dashed border-gray-300">
+                  {/* <div className="mt-6 bg-gray-100 rounded-xl h-64 flex items-center justify-center border-2 border-dashed border-gray-300">
                     <div className="text-center">
                       <MapPin className="w-12 h-12 text-gray-400 mx-auto mb-3" />
                       <p className="text-gray-500 font-medium">
@@ -90,6 +90,17 @@ const LocationConnectivity = () => {
                         Embed Google Map Here
                       </p>
                     </div>
+                  </div> */}
+                  <div className="mt-6 bg-gray-100 rounded-lg overflow-hidden">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.703853491574!2d73.1331656!3d33.58703765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfec898bce0873%3A0x1c7bf1f9bcdbd525!2sSector%203%20Airport%20Employees%20CHS%2C%20Rawalpindi!5e0!3m2!1sen!2s!4v1753947936557!5m2!1sen!2s"
+                      width="100%"
+                      height="400"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
                   </div>
                 </div>
               </div>
@@ -152,7 +163,7 @@ const LocationConnectivity = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {residentialCommunities.map((community, index) => (
                 <div
                   key={index}

@@ -1,12 +1,5 @@
-import React, { useState } from "react";
-import {
-  MapPin,
-  Phone,
-  Globe,
-  Calendar,
-  CheckCircle,
-  Mail,
-} from "lucide-react";
+import { useState } from "react";
+import { MapPin, Phone, Calendar, CheckCircle, Mail } from "lucide-react";
 import ContactForm from "./ContactForm";
 
 const BookingSection = () => {

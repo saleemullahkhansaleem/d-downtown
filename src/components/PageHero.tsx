@@ -1,4 +1,5 @@
 import { LucideIcon } from "lucide-react";
+import { heroImages } from "../assets/images";
 
 interface PageHeroProps {
   icon: LucideIcon;
@@ -22,7 +23,18 @@ const PageHero = ({
   badgeTextColor = "text-white",
 }: PageHeroProps) => {
   return (
-    <section className="relative pt-20 pb-16 px-4 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+    <section
+      className="relative pt-20 pb-16 px-4 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden"
+      style={{
+        backgroundImage: `url(${heroImages.background})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      {/* Matte Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-blue-900/70 to-indigo-900/80"></div>
+
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>

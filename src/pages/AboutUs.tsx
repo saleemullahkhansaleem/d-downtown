@@ -5,11 +5,11 @@ import {
   Users,
   Target,
   Award,
-  ArrowRight,
   CheckCircle,
   Star,
   TrendingUp,
   Calculator,
+  MessageSquareText,
 } from "lucide-react";
 import PageHero from "../components/PageHero";
 import CTASection from "../components/CTASection";
@@ -265,7 +265,7 @@ const AboutUs = () => {
         primaryAction={{
           text: "Contact Us Today",
           href: "/contact-us",
-          icon: ArrowRight,
+          icon: MessageSquareText,
         }}
         secondaryAction={{
           text: "View Pricing",

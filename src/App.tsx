@@ -13,6 +13,7 @@ import FAQs from "./pages/FAQs";
 import ContactUs from "./pages/ContactUs";
 import DroneShoots from "./pages/DroneShoots";
 import Blog from "./pages/Blog";
+import BlogDetail from "./pages/BlogDetail";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
@@ -42,6 +43,7 @@ function App() {
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/drone-shoots" element={<DroneShoots />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogDetail />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="*" element={<NotFound />} />

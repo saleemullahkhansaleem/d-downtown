@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
+import MrCard from "./MrCard";
 
 const Footer = () => {
   return (
@@ -191,7 +192,11 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-xs">
               © 2024 D-DOWNTOWN. All rights reserved.
-            </p>
+            </p>{" "}
+            {/* Developer Credit */}
+            <div className="text-gray-400">
+              <MrCard />
+            </div>
             <div className="flex space-x-4 mt-3 md:mt-0">
               <Link
                 to="/privacy-policy"

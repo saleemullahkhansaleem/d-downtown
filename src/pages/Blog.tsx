@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   FileText,
   Calendar,
@@ -11,6 +12,7 @@ import {
   MapPin,
   Star,
   Award,
+  MessageSquareText,
 } from "lucide-react";
 import PageHero from "../components/PageHero";
 import CTASection from "../components/CTASection";
@@ -30,6 +32,7 @@ const Blog = () => {
 
   const blogPosts = [
     {
+      id: "2",
       title: "Why Rawalpindi is the Next Commercial Hotspot",
       excerpt:
         "Explore the factors driving Rawalpindi's emergence as a prime commercial destination and how D-DOWNTOWN is positioned to capitalize on this growth.",
@@ -41,6 +44,7 @@ const Blog = () => {
       views: "1.8K",
     },
     {
+      id: "3",
       title: "Investment Models That Work: D-DOWNTOWN's Success Formula",
       excerpt:
         "Learn about our proven investment strategies and how they're delivering exceptional returns for early investors in the D-DOWNTOWN project.",
@@ -52,6 +56,7 @@ const Blog = () => {
       views: "1.5K",
     },
     {
+      id: "4",
       title: "The Future of Commercial Real Estate in Pakistan",
       excerpt:
         "Insights into emerging trends, technological advancements, and market dynamics shaping the future of commercial real estate in Pakistan.",
@@ -63,6 +68,7 @@ const Blog = () => {
       views: "2.1K",
     },
     {
+      id: "5",
       title: "Location Analysis: Askari 14 and Adyala Road Advantage",
       excerpt:
         "Detailed analysis of why our strategic location near Askari 14 and Adyala Road provides unmatched commercial opportunities.",
@@ -74,6 +80,7 @@ const Blog = () => {
       views: "1.2K",
     },
     {
+      id: "6",
       title: "RDA Approval: What It Means for Your Investment",
       excerpt:
         "Understanding the significance of Rawalpindi Development Authority approval and how it protects and enhances your investment value.",
@@ -85,6 +92,7 @@ const Blog = () => {
       views: "956",
     },
     {
+      id: "7",
       title: "Commercial Infrastructure: The D-DOWNTOWN Difference",
       excerpt:
         "Explore our cutting-edge infrastructure including underground electricity, centralized HVAC, and front-facing parking facilities.",
@@ -198,10 +206,13 @@ const Blog = () => {
                   </div>
                 </div>
 
-                <button className="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                <Link
+                  to="/blog/1"
+                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                >
                   <span>Read Full Article</span>
                   <ArrowRight className="w-5 h-5" />
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -209,55 +220,54 @@ const Blog = () => {
           {/* Blog Posts Grid */}
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
             {blogPosts.map((post, index) => (
-              <article
-                key={index}
-                className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden"
-              >
-                <div
-                  className={`${post.image} w-full h-48 relative overflow-hidden`}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                  <div className="absolute top-4 left-4">
-                    <div className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-white">
-                      {post.category}
+              <Link key={index} to={`/blog/${post.id}`} className="block">
+                <article className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                  <div
+                    className={`${post.image} w-full h-48 relative overflow-hidden`}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    <div className="absolute top-4 left-4">
+                      <div className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-white">
+                        {post.category}
+                      </div>
                     </div>
-                  </div>
-                  <div className="absolute bottom-4 right-4">
-                    <div className="flex items-center space-x-1 text-white text-sm">
-                      <Eye className="w-4 h-4" />
-                      <span>{post.views}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3 leading-tight">
-                    {post.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                    {post.excerpt}
-                  </p>
-
-                  <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
-                    <div className="flex items-center space-x-1">
-                      <User className="w-4 h-4" />
-                      <span>{post.author}</span>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                      <Clock className="w-4 h-4" />
-                      <span>{post.readTime}</span>
+                    <div className="absolute bottom-4 right-4">
+                      <div className="flex items-center space-x-1 text-white text-sm">
+                        <Eye className="w-4 h-4" />
+                        <span>{post.views}</span>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-gray-400">{post.date}</span>
-                    <button className="inline-flex items-center space-x-1 text-amber-600 hover:text-amber-700 font-medium text-sm transition-colors">
-                      <span>Read More</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
+                  <div className="p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3 leading-tight">
+                      {post.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                      {post.excerpt}
+                    </p>
+
+                    <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                      <div className="flex items-center space-x-1">
+                        <User className="w-4 h-4" />
+                        <span>{post.author}</span>
+                      </div>
+                      <div className="flex items-center space-x-1">
+                        <Clock className="w-4 h-4" />
+                        <span>{post.readTime}</span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-gray-400">{post.date}</span>
+                      <div className="inline-flex items-center space-x-1 text-amber-600 hover:text-amber-700 font-medium text-sm transition-colors">
+                        <span>Read More</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </article>
+                </article>
+              </Link>
             ))}
           </div>
 
@@ -388,7 +398,7 @@ const Blog = () => {
         primaryAction={{
           text: "Contact Our Team",
           href: "/contact-us",
-          icon: ArrowRight,
+          icon: MessageSquareText,
         }}
         secondaryAction={{
           text: "View Investment Models",

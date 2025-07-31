@@ -2,17 +2,14 @@ import {
   Camera,
   Video,
   MapPin,
-  Clock,
   Star,
-  ArrowRight,
   Play,
   Download,
   Share2,
   Eye,
   Award,
-  Building2,
-  Users,
   CheckCircle,
+  MessageSquareText,
 } from "lucide-react";
 import PageHero from "../components/PageHero";
 import CTASection from "../components/CTASection";
@@ -354,7 +351,7 @@ const DroneShoots = () => {
         primaryAction={{
           text: "Schedule Viewing",
           href: "/contact-us",
-          icon: ArrowRight,
+          icon: MessageSquareText,
         }}
         secondaryAction={{
           text: "Download Brochure",
