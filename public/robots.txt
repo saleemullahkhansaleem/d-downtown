@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://d-downtown.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin or private areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+# Allow important pages
+Allow: /about-us
+Allow: /contact-us
+Allow: /project-portfolio
+Allow: /investment-models
+Allow: /payment-pricing
+Allow: /commercial-services
+Allow: /location-connectivity
+Allow: /our-team
+Allow: /faqs
+Allow: /blog
+Allow: /drone-shoots

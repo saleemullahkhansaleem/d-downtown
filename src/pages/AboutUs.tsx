@@ -11,7 +11,7 @@ import {
   Calculator,
   MessageSquareText,
 } from "lucide-react";
-import { PageHero, CTASection } from "../components";
+import { PageHero, CTASection, SEO } from "../components";
 
 const AboutUs = () => {
   const features = [
@@ -54,6 +54,45 @@ const AboutUs = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-amber-50">
+      <SEO
+        title="About D-DOWNTOWN - Rawalpindi's Premier Commercial Hub"
+        description="Learn about D-DOWNTOWN's strategic location near Askari 14 and Adyala Road, surrounded by high footfall residential communities. Discover our 6 well-planned plazas with 24/7 security and comprehensive property management."
+        keywords="D-DOWNTOWN about, commercial hub Rawalpindi, strategic location, Askari 14, Adyala Road, residential communities, property management, 24/7 security, commercial plazas"
+        url="/about-us"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "D-DOWNTOWN",
+          description:
+            "Rawalpindi's premier commercial hub with strategic location and comprehensive property management",
+          url: "https://d-downtown.com/about-us",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Near Askari 14 and Adyala Road",
+            addressLocality: "Rawalpindi",
+            addressRegion: "Punjab",
+            addressCountry: "PK",
+          },
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: "33.6844",
+            longitude: "73.0479",
+          },
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Commercial Spaces",
+            itemListElement: [
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Commercial Plaza Spaces",
+                },
+              },
+            ],
+          },
+        }}
+      />
       {/* Hero Section */}
       <PageHero
         icon={Star}

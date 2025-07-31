@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import { Header, Footer } from "./components";
 import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
@@ -20,39 +21,41 @@ import { ScrollToTop } from "./components";
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="min-h-screen">
-        <Header />
-        <main className="pt-14">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/project-portfolio" element={<ProjectPortfolio />} />
-            <Route path="/investment-models" element={<InvestmentModels />} />
-            <Route path="/payment-pricing" element={<PaymentPricing />} />
-            <Route
-              path="/commercial-services"
-              element={<CommercialServices />}
-            />
-            <Route
-              path="/location-connectivity"
-              element={<LocationConnectivity />}
-            />
-            <Route path="/our-team" element={<OurTeam />} />
-            <Route path="/faqs" element={<FAQs />} />
-            <Route path="/contact-us" element={<ContactUs />} />
-            <Route path="/drone-shoots" element={<DroneShoots />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:id" element={<BlogDetail />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/terms-of-service" element={<TermsOfService />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <ScrollToTop />
+        <div className="min-h-screen">
+          <Header />
+          <main className="pt-14">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about-us" element={<AboutUs />} />
+              <Route path="/project-portfolio" element={<ProjectPortfolio />} />
+              <Route path="/investment-models" element={<InvestmentModels />} />
+              <Route path="/payment-pricing" element={<PaymentPricing />} />
+              <Route
+                path="/commercial-services"
+                element={<CommercialServices />}
+              />
+              <Route
+                path="/location-connectivity"
+                element={<LocationConnectivity />}
+              />
+              <Route path="/our-team" element={<OurTeam />} />
+              <Route path="/faqs" element={<FAQs />} />
+              <Route path="/contact-us" element={<ContactUs />} />
+              <Route path="/drone-shoots" element={<DroneShoots />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:id" element={<BlogDetail />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-of-service" element={<TermsOfService />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </HelmetProvider>
   );
 }
 

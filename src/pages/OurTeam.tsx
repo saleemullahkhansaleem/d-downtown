@@ -9,7 +9,7 @@ import {
   Linkedin,
   Instagram,
 } from "lucide-react";
-import { PageHero, CTASection } from "../components";
+import { PageHero, CTASection, SEO } from "../components";
 import { teamImages } from "../assets";
 
 const OurTeam = () => {
@@ -156,6 +156,34 @@ const OurTeam = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-amber-50">
+      <SEO
+        title="Our Team - D-DOWNTOWN Leadership & Experts"
+        description="Meet the dedicated professionals behind D-DOWNTOWN's success. Our experienced team brings together expertise in real estate, project management, and commercial development."
+        keywords="D-DOWNTOWN team, leadership, experts, professionals, real estate team, project management, commercial development experts, Khawar Abbasi, Hafsa Akmal Wyne"
+        url="/our-team"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "D-DOWNTOWN Team",
+          description:
+            "Professional team of real estate and development experts",
+          url: "https://d-downtown.com/our-team",
+          employee: [
+            {
+              "@type": "Person",
+              name: "Khawar Abbasi",
+              jobTitle: "Chief Executive Officer",
+              email: "CEO@d-downtown.com",
+            },
+            {
+              "@type": "Person",
+              name: "Hafsa Akmal Wyne",
+              jobTitle: "Project Manager",
+              email: "Projectmanager@d-downtown.com",
+            },
+          ],
+        }}
+      />
       {/* Hero Section */}
       <PageHero
         icon={Users}

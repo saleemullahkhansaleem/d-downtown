@@ -190,7 +190,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-8 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-xs">
-              © 2024 D-DOWNTOWN. All rights reserved.
+              © 2025 D-DOWNTOWN. All rights reserved.
             </p>{" "}
             {/* Developer Credit */}
             <div className="text-gray-400">

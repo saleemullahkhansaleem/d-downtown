@@ -13,7 +13,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { PageHero, CTASection } from "../components";
+import { PageHero, CTASection, SEO } from "../components";
 
 const ContactUs = () => {
   const contactMethods = [
@@ -94,6 +94,48 @@ const ContactUs = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-amber-50">
+      <SEO
+        title="Contact D-DOWNTOWN - Get in Touch for Commercial Space Inquiries"
+        description="Contact D-DOWNTOWN for commercial space inquiries. Call us at 0313-055-2222, email info@d-downtown.com, or visit our office. Get expert guidance on investment opportunities in Rawalpindi's premier commercial hub."
+        keywords="contact D-DOWNTOWN, commercial space inquiries, Rawalpindi commercial hub, investment opportunities, phone number, email, office location, sales team"
+        url="/contact-us"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: "Contact D-DOWNTOWN",
+          description:
+            "Get in touch with D-DOWNTOWN for commercial space inquiries and investment opportunities",
+          url: "https://d-downtown.com/contact-us",
+          mainEntity: {
+            "@type": "Organization",
+            name: "D-DOWNTOWN",
+            contactPoint: [
+              {
+                "@type": "ContactPoint",
+                telephone: "+92-313-055-2222",
+                contactType: "customer service",
+                areaServed: "PK",
+                availableLanguage: "English",
+              },
+              {
+                "@type": "ContactPoint",
+                telephone: "+92-313-055-2222",
+                contactType: "sales",
+                areaServed: "PK",
+                availableLanguage: "English",
+              },
+            ],
+            email: "info@d-downtown.com",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "Main Defence Road",
+              addressLocality: "Rawalpindi",
+              addressRegion: "Punjab",
+              addressCountry: "PK",
+            },
+          },
+        }}
+      />
       {/* Hero Section */}
       <PageHero
         icon={MessageCircle}
