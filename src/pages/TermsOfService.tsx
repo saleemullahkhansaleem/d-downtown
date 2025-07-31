@@ -1,8 +1,26 @@
 import React from "react";
+import { SEO } from "../components";
 
 const TermsOfService = () => {
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <SEO
+        title="Terms of Service - D-DOWNTOWN"
+        description="Read D-DOWNTOWN's terms of service and conditions for using our website and commercial real estate services. Understand our policies and agreements."
+        keywords="terms of service, D-DOWNTOWN terms, conditions, legal agreement, commercial real estate terms"
+        url="/terms-of-service"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Terms of Service",
+          description: "D-DOWNTOWN Terms of Service and Legal Agreements",
+          url: "https://d-downtown.com/terms-of-service",
+          publisher: {
+            "@type": "Organization",
+            name: "D-DOWNTOWN",
+          },
+        }}
+      />
       <h1 className="text-3xl font-bold text-gray-900 mb-8">
         Terms of Service
       </h1>

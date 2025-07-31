@@ -11,7 +11,7 @@ import {
   Award,
   MessageSquareText,
 } from "lucide-react";
-import { PageHero, CTASection } from "../components";
+import { PageHero, CTASection, SEO } from "../components";
 
 const InvestmentModels = () => {
   const investmentModels = [
@@ -108,6 +108,54 @@ const InvestmentModels = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-amber-50">
+      <SEO
+        title="Investment Models - D-DOWNTOWN Commercial Opportunities"
+        description="Discover flexible investment models and opportunities at D-DOWNTOWN. Choose from various payment plans, ownership options, and investment strategies for commercial real estate in Rawalpindi."
+        keywords="investment models, commercial opportunities, payment plans, ownership options, investment strategies, commercial real estate Rawalpindi, D-DOWNTOWN investment, rental model, pre-launch model"
+        url="/investment-models"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Investment Models",
+          description:
+            "Flexible investment opportunities in commercial real estate",
+          provider: {
+            "@type": "Organization",
+            name: "D-DOWNTOWN",
+          },
+          areaServed: {
+            "@type": "City",
+            name: "Rawalpindi",
+          },
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Investment Options",
+            itemListElement: [
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Rental Model",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Pre-Launch Model",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "End-User Model",
+                },
+              },
+            ],
+          },
+        }}
+      />
       {/* Hero Section */}
       <PageHero
         icon={Calculator}

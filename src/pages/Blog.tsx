@@ -14,7 +14,7 @@ import {
   Award,
   MessageSquareText,
 } from "lucide-react";
-import { PageHero, CTASection } from "../components";
+import { PageHero, CTASection, SEO } from "../components";
 
 const Blog = () => {
   const featuredPost = {
@@ -142,6 +142,36 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-amber-50">
+      <SEO
+        title="Blog - D-DOWNTOWN Commercial Real Estate Insights"
+        description="Stay updated with the latest insights, market trends, and news about commercial real estate in Rawalpindi. Expert analysis and valuable information from D-DOWNTOWN."
+        keywords="blog, commercial real estate, market trends, Rawalpindi real estate, D-DOWNTOWN blog, real estate insights, investment strategies, project updates"
+        url="/blog"
+        type="website"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          name: "D-DOWNTOWN Blog",
+          description: "Commercial real estate insights and market trends",
+          url: "https://d-downtown.com/blog",
+          publisher: {
+            "@type": "Organization",
+            name: "D-DOWNTOWN",
+          },
+          blogPost: [
+            {
+              "@type": "BlogPosting",
+              headline: "D-DOWNTOWN: Rawalpindi's Commercial Revolution",
+              author: {
+                "@type": "Organization",
+                name: "D-DOWNTOWN Team",
+              },
+              datePublished: "2024-12-15",
+              dateModified: "2024-12-15",
+            },
+          ],
+        }}
+      />
       {/* Hero Section */}
       <PageHero
         icon={FileText}

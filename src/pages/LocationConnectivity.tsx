@@ -11,7 +11,7 @@ import {
   Users,
   TrendingUp,
 } from "lucide-react";
-import { PageHero, CTASection } from "../components";
+import { PageHero, CTASection, SEO } from "../components";
 
 const LocationConnectivity = () => {
   const roadAccess = ["Adyala Road", "GT Road", "Saddar"];
@@ -42,6 +42,38 @@ const LocationConnectivity = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Location & Connectivity - D-DOWNTOWN Strategic Position"
+        description="Discover D-DOWNTOWN's strategic location on Main Defence Road with excellent connectivity to major landmarks, residential areas, and transportation hubs in Rawalpindi."
+        keywords="location, connectivity, Main Defence Road, strategic position, landmarks, residential areas, transportation, D-DOWNTOWN location, Rawalpindi commercial hub location"
+        url="/location-connectivity"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Place",
+          name: "D-DOWNTOWN",
+          description: "Strategic commercial location in Rawalpindi",
+          url: "https://d-downtown.com/location-connectivity",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Sector 3 Rawalpindi",
+            addressLocality: "Rawalpindi",
+            addressRegion: "Punjab",
+            addressCountry: "PK",
+            postalCode: "46000",
+          },
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: "33.58703765",
+            longitude: "73.1331656",
+          },
+          hasMap:
+            "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.703853491574!2d73.1331656!3d33.58703765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfec898bce0873%3A0x1c7bf1f9bcdbd525!2sSector%203%20Airport%20Employees%20CHS%2C%20Rawalpindi!5e0!3m2!1sen!2s!4v1753947936557!5m2!1sen!2s",
+          areaServed: {
+            "@type": "City",
+            name: "Rawalpindi",
+          },
+        }}
+      />
       {/* Hero Section */}
       <PageHero
         icon={MapPin}

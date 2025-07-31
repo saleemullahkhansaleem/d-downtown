@@ -11,7 +11,7 @@ import {
   CheckCircle,
   MessageSquareText,
 } from "lucide-react";
-import { PageHero, CTASection } from "../components";
+import { PageHero, CTASection, SEO } from "../components";
 
 const DroneShoots = () => {
   const droneServices = [
@@ -107,6 +107,27 @@ const DroneShoots = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-amber-50">
+      <SEO
+        title="Drone Shoots - D-DOWNTOWN Aerial Views & Progress"
+        description="Experience D-DOWNTOWN from above with stunning drone footage. View aerial perspectives of our commercial development progress and strategic location in Rawalpindi."
+        keywords="drone shoots, aerial views, D-DOWNTOWN progress, commercial development footage, Rawalpindi aerial, construction progress, aerial photography"
+        url="/drone-shoots"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "VideoObject",
+          name: "D-DOWNTOWN Drone Shoots",
+          description:
+            "Aerial views and progress footage of D-DOWNTOWN commercial development",
+          url: "https://d-downtown.com/drone-shoots",
+          uploadDate: "2024-12-15",
+          publisher: {
+            "@type": "Organization",
+            name: "D-DOWNTOWN",
+          },
+          contentUrl: "https://d-downtown.com/drone-shoots",
+          thumbnailUrl: "https://d-downtown.com/drone-thumbnail.jpg",
+        }}
+      />
       {/* Hero Section */}
       <PageHero
         icon={Camera}

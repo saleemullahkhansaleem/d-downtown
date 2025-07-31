@@ -20,7 +20,7 @@ import {
   ChevronRight,
   Phone,
 } from "lucide-react";
-import { PageHero, CTASection } from "../components";
+import { PageHero, CTASection, SEO } from "../components";
 
 const ProjectPortfolio = () => {
   const unitTypes = [
@@ -154,6 +154,39 @@ const ProjectPortfolio = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Project Portfolio - D-DOWNTOWN Commercial Development"
+        description="Explore D-DOWNTOWN's impressive project portfolio showcasing our 10 modern commercial plazas. View detailed specifications, floor plans, and investment opportunities in Rawalpindi's premier commercial hub."
+        keywords="D-DOWNTOWN portfolio, commercial development, project showcase, floor plans, specifications, investment opportunities, commercial plazas Rawalpindi, retail spaces, commercial units"
+        url="/project-portfolio"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "D-DOWNTOWN Project Portfolio",
+          description: "Collection of commercial development projects",
+          url: "https://d-downtown.com/project-portfolio",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              item: {
+                "@type": "RealEstateListing",
+                name: "Commercial Plaza 1",
+                description: "Modern commercial space in D-DOWNTOWN",
+              },
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              item: {
+                "@type": "RealEstateListing",
+                name: "Commercial Plaza 2",
+                description: "Retail and office spaces in D-DOWNTOWN",
+              },
+            },
+          ],
+        }}
+      />
       {/* Hero Section */}
       <PageHero
         icon={Building2}

@@ -1,8 +1,27 @@
 import React from "react";
+import { SEO } from "../components";
 
 const PrivacyPolicy = () => {
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <SEO
+        title="Privacy Policy - D-DOWNTOWN"
+        description="Learn about how D-DOWNTOWN collects, uses, and protects your personal information. Our privacy policy ensures your data security and transparency."
+        keywords="privacy policy, D-DOWNTOWN privacy, data protection, personal information, GDPR compliance"
+        url="/privacy-policy"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Privacy Policy",
+          description:
+            "D-DOWNTOWN Privacy Policy and Data Protection Information",
+          url: "https://d-downtown.com/privacy-policy",
+          publisher: {
+            "@type": "Organization",
+            name: "D-DOWNTOWN",
+          },
+        }}
+      />
       <h1 className="text-3xl font-bold text-gray-900 mb-8">Privacy Policy</h1>
 
       <div className="prose prose-lg max-w-none">

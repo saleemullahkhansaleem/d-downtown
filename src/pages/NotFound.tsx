@@ -7,7 +7,7 @@ import {
   Building2,
   HelpCircle,
 } from "lucide-react";
-import { Logo } from "../components";
+import { Logo, SEO } from "../components";
 
 const NotFound = () => {
   const quickLinks = [
@@ -19,6 +19,19 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-amber-50 relative overflow-hidden">
+      <SEO
+        title="404 - Page Not Found | D-DOWNTOWN"
+        description="The page you're looking for cannot be found. Navigate back to D-DOWNTOWN's main pages to explore our commercial real estate opportunities in Rawalpindi."
+        keywords="404, page not found, D-DOWNTOWN, commercial real estate, Rawalpindi"
+        url="/404"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "404 - Page Not Found",
+          description: "Page not found on D-DOWNTOWN website",
+          url: "https://d-downtown.com/404",
+        }}
+      />
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-200/30 to-amber-200/30 rounded-full blur-3xl animate-float"></div>

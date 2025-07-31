@@ -12,7 +12,7 @@ import {
   Phone,
   Calculator,
 } from "lucide-react";
-import { PageHero, CTASection } from "../components";
+import { PageHero, CTASection, SEO } from "../components";
 
 const CommercialServices = () => {
   const leasingBenefits = [
@@ -64,6 +64,54 @@ const CommercialServices = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-amber-50">
+      <SEO
+        title="Commercial Services - D-DOWNTOWN Business Solutions"
+        description="Comprehensive commercial services at D-DOWNTOWN including property management, security, maintenance, and business support. Everything you need for successful commercial operations."
+        keywords="commercial services, property management, business support, security services, maintenance, D-DOWNTOWN services, brand partnerships, tenant support"
+        url="/commercial-services"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Commercial Services",
+          description:
+            "Comprehensive business solutions and property management",
+          provider: {
+            "@type": "Organization",
+            name: "D-DOWNTOWN",
+          },
+          areaServed: {
+            "@type": "City",
+            name: "Rawalpindi",
+          },
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Commercial Services",
+            itemListElement: [
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Property Management",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Brand Partnerships",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Tenant Support",
+                },
+              },
+            ],
+          },
+        }}
+      />
       {/* Hero Section */}
       <PageHero
         icon={Building2}

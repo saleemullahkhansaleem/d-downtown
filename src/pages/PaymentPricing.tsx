@@ -12,7 +12,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { useState } from "react";
-import { PageHero, CTASection } from "../components";
+import { PageHero, CTASection, SEO } from "../components";
 
 const PaymentPricing = () => {
   const [activeFloor, setActiveFloor] = useState("lower-ground");
@@ -260,6 +260,48 @@ const PaymentPricing = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-amber-50">
+      <SEO
+        title="Payment & Pricing - D-DOWNTOWN Commercial Spaces"
+        description="Transparent pricing and flexible payment plans for D-DOWNTOWN commercial spaces. Get detailed cost breakdowns, installment options, and financing solutions for your commercial investment."
+        keywords="payment plans, pricing, commercial spaces, cost breakdown, installment options, financing solutions, D-DOWNTOWN pricing, commercial real estate pricing Rawalpindi"
+        url="/payment-pricing"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Payment & Pricing Plans",
+          description: "Transparent pricing and flexible payment options",
+          provider: {
+            "@type": "Organization",
+            name: "D-DOWNTOWN",
+          },
+          areaServed: {
+            "@type": "City",
+            name: "Rawalpindi",
+          },
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Commercial Space Pricing",
+            itemListElement: [
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Lower Ground Floor Spaces",
+                  description: "Starting from Rs. 40,000 per sq ft",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Ground Floor Spaces",
+                  description: "Starting from Rs. 60,000 per sq ft",
+                },
+              },
+            ],
+          },
+        }}
+      />
       {/* Hero Section */}
       <PageHero
         icon={Calculator}

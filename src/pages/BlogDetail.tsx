@@ -15,7 +15,7 @@ import {
   ThumbsUp,
   MessageSquare,
 } from "lucide-react";
-import { PageHero, CTASection } from "../components";
+import { PageHero, CTASection, SEO } from "../components";
 
 const BlogDetail = () => {
   const { id } = useParams();
@@ -256,6 +256,41 @@ const BlogDetail = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-amber-50">
+      <SEO
+        title={`${currentBlogData.title} | D-DOWNTOWN Blog`}
+        description={currentBlogData.excerpt}
+        keywords={`${
+          currentBlogData.tags?.join(", ") ||
+          "D-DOWNTOWN, blog, commercial real estate, Rawalpindi"
+        }, ${currentBlogData.category}`}
+        url={`/blog/${id}`}
+        type="article"
+        publishedTime="2024-12-15"
+        author={currentBlogData.author}
+        tags={currentBlogData.tags}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: currentBlogData.title,
+          description: currentBlogData.excerpt,
+          author: {
+            "@type": "Organization",
+            name: currentBlogData.author,
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "D-DOWNTOWN",
+          },
+          datePublished: "2024-12-15",
+          dateModified: "2024-12-15",
+          mainEntityOfPage: {
+            "@type": "WebPage",
+            "@id": `https://d-downtown.com/blog/${id}`,
+          },
+          articleSection: currentBlogData.category,
+          keywords: currentBlogData.tags?.join(", "),
+        }}
+      />
       {/* Hero Section */}
       <PageHero
         icon={FileText}

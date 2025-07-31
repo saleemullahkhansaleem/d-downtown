@@ -7,7 +7,7 @@ import {
   Mail,
   MapPin,
 } from "lucide-react";
-import { PageHero, CTASection } from "../components";
+import { PageHero, CTASection, SEO } from "../components";
 
 interface FAQItem {
   question: string;
@@ -106,6 +106,42 @@ const FAQs = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO
+        title="FAQs - D-DOWNTOWN Commercial Hub Questions & Answers"
+        description="Find answers to frequently asked questions about D-DOWNTOWN commercial spaces, investment opportunities, payment plans, and project details. Get all the information you need."
+        keywords="FAQs, frequently asked questions, D-DOWNTOWN questions, commercial hub FAQ, investment FAQ, payment plans FAQ, RDA approved, commercial spaces"
+        url="/faqs"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "Is D-Downtown an approved project?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes, D-Downtown is officially approved by the Rawalpindi Development Authority (RDA). With the NOC number provided you can counter check the authenticity and status.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What types of businesses can operate in D-Downtown?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "The project is ideal for clothing brands, cafes, restaurants, grocery stores, pharmacies, salons, ice cream parlors, tea and coffee shops, corporate offices, creative studios, and boutique retail setups.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What is the payment plan?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "We offer a post-handover payment plan with possession in 1 year and a flexible 2-year installment schedule.",
+              },
+            },
+          ],
+        }}
+      />
       {/* Hero Section */}
       <PageHero
         icon={HelpCircle}
