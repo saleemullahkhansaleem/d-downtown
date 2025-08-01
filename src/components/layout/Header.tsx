@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Menu,
   X,
@@ -57,6 +57,29 @@ const Header = () => {
   const closeDropdowns = () => {
     // This function is kept for mobile menu and logo click
   };
+
+  // Prevent background scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      // Disable scrolling on body
+      document.body.style.overflow = "hidden";
+      // Prevent iOS Safari from bouncing
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+    } else {
+      // Re-enable scrolling
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    }
+
+    // Cleanup function to ensure scrolling is re-enabled when component unmounts
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    };
+  }, [isMenuOpen]);
 
   return (
     <header className="bg-white/70 backdrop-blur-xl shadow-2xl fixed w-full top-0 z-50 border-b border-gray-100">
@@ -158,7 +181,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100 max-h-96 overflow-y-auto">
+          <div className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100 max-h-[calc(100vh-56px)] overflow-y-auto">
             <nav className="py-3 space-y-1">
               {navigationItems.map((item, index) => {
                 if (item.href) {
@@ -167,7 +190,7 @@ const Header = () => {
                     <Link
                       key={index}
                       to={item.href}
-                      className="block px-4 py-2.5 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-all duration-300 font-semibold rounded-lg mx-2 text-sm flex items-center space-x-2"
+                      className="px-4 py-2.5 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-all duration-300 font-semibold rounded-lg mx-2 text-sm flex items-center space-x-2"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {item.icon && <item.icon className="w-4 h-4" />}
