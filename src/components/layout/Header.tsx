@@ -14,7 +14,6 @@ import { Logo } from "../common";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   const navigationItems = [
     { href: "/", label: "Home", icon: null },
@@ -55,12 +54,8 @@ const Header = () => {
     },
   ];
 
-  const handleDropdownToggle = (label: string) => {
-    setActiveDropdown(activeDropdown === label ? null : label);
-  };
-
   const closeDropdowns = () => {
-    setActiveDropdown(null);
+    // This function is kept for mobile menu and logo click
   };
 
   return (
@@ -107,27 +102,16 @@ const Header = () => {
               } else {
                 // Dropdown menu
                 return (
-                  <div key={index} className="relative">
-                    <button
-                      className="text-gray-700 hover:text-blue-900 font-medium px-3 py-1.5 rounded hover:bg-blue-500/10 text-sm transition-all duration-300 flex items-center space-x-1"
-                      onClick={() => handleDropdownToggle(item.label)}
-                      onMouseEnter={() => setActiveDropdown(item.label)}
-                    >
+                  <div key={index} className="relative group">
+                    <button className="text-gray-700 hover:text-blue-900 font-medium px-3 py-1.5 rounded hover:bg-blue-500/10 text-sm transition-all duration-300 flex items-center space-x-1">
                       {item.icon && <item.icon className="w-4 h-4" />}
                       <span>{item.label}</span>
-                      <ChevronDown
-                        className={`w-3 h-3 transition-transform duration-200 ${
-                          activeDropdown === item.label ? "rotate-180" : ""
-                        }`}
-                      />
+                      <ChevronDown className="w-3 h-3 transition-transform duration-200 group-hover:rotate-180" />
                     </button>
 
                     {/* Dropdown Menu */}
-                    {activeDropdown === item.label && (
-                      <div
-                        className="absolute top-full left-0 mt-1 w-64 bg-white/95 backdrop-blur-xl rounded-xl shadow-2xl border border-gray-100 py-2 z-50"
-                        onMouseLeave={() => setActiveDropdown(null)}
-                      >
+                    <div className="absolute top-full left-0 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top scale-95 group-hover:scale-100">
+                      <div className="mt-1 w-64 bg-white/95 backdrop-blur-xl rounded-xl shadow-2xl border border-gray-100 py-2">
                         {item.items?.map((subItem, subIndex) => (
                           <Link
                             key={subIndex}
@@ -139,7 +123,7 @@ const Header = () => {
                           </Link>
                         ))}
                       </div>
-                    )}
+                    </div>
                   </div>
                 );
               }
