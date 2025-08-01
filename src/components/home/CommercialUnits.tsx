@@ -100,94 +100,62 @@ const CommercialUnits = () => {
           ))}
         </div>
 
-        {/* CTA Section */}
-        <div className="mt-12 grid md:grid-cols-2 gap-6">
-          {/* Floor-wise Diversion CTA */}
-          <Link
-            to="/project-portfolio"
-            className="group bg-gradient-to-r from-blue-900 to-blue-800 rounded-2xl p-6 text-white hover:from-blue-800 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl"
-          >
-            <div className="flex items-center space-x-4">
-              <div className="bg-white/20 p-3 rounded-xl group-hover:bg-white/30 transition-colors">
-                <Building2 className="w-8 h-8" />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl font-bold mb-2">Floor-wise Diversion</h3>
-                <p className="text-blue-100 text-sm leading-relaxed">
-                  Explore detailed floor plans and commercial plaza layout with
-                  complete area breakdowns
-                </p>
-              </div>
-            </div>
-            <div className="mt-4 flex items-center text-blue-100 group-hover:text-white transition-colors">
-              <span className="text-sm font-semibold">
-                View Project Portfolio
-              </span>
-              <svg
-                className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </div>
-          </Link>
-
-          {/* Pricing CTA */}
-          <Link
-            to="/payment-pricing"
-            className="group bg-gradient-to-r from-amber-600 to-amber-700 rounded-2xl p-6 text-white hover:from-amber-500 hover:to-amber-600 transition-all duration-300 shadow-lg hover:shadow-xl"
-          >
-            <div className="flex items-center space-x-4">
-              <div className="bg-white/20 p-3 rounded-xl group-hover:bg-white/30 transition-colors">
-                <CreditCard className="w-8 h-8" />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl font-bold mb-2">Payment & Pricing</h3>
-                <p className="text-amber-100 text-sm leading-relaxed">
-                  Get detailed pricing information, payment plans, and
-                  investment options
-                </p>
-              </div>
-            </div>
-            <div className="mt-4 flex items-center text-amber-100 group-hover:text-white transition-colors">
-              <span className="text-sm font-semibold">
-                View Pricing Details
-              </span>
-              <svg
-                className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </div>
-          </Link>
-        </div>
-
         <div className="mt-12 text-center">
-          <div className="bg-white rounded-2xl p-6 shadow-lg max-w-2xl mx-auto">
-            <Eye className="w-10 h-10 text-amber-500 mx-auto mb-3" />
-            <h3 className="text-xl font-bold text-gray-900 mb-3">
+          <div className="bg-white rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
+            <Eye className="w-12 h-12 text-amber-500 mx-auto mb-4" />
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Net Area Pricing Policy
             </h3>
-            <p className="text-gray-600 leading-relaxed text-sm">
+            <p className="text-gray-600 leading-relaxed mb-8 max-w-3xl mx-auto">
               We deal exclusively in Net Area, ensuring that you only pay for
               the space you actually use. No charges for non-functional or
               shared areas - transparent pricing for smart investors.
             </p>
+
+            {/* CTA Buttons */}
+            <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+              <Link
+                to="/project-portfolio"
+                className="group bg-blue-900 hover:bg-blue-800 text-white py-3 px-6 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
+              >
+                <Building2 className="w-5 h-5" />
+                <span>View Floor Plans</span>
+                <svg
+                  className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </Link>
+
+              <Link
+                to="/payment-pricing"
+                className="group bg-amber-600 hover:bg-amber-500 text-white py-3 px-6 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
+              >
+                <CreditCard className="w-5 h-5" />
+                <span>View Pricing</span>
+                <svg
+                  className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

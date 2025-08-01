@@ -65,7 +65,7 @@ const Brands = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {brandCategories.map((category, index) => {
             const Icon = category.icon;
             return (
@@ -97,7 +97,7 @@ const Brands = () => {
           })}
         </div>
 
-        <div className="bg-gradient-to-r from-blue-900 to-blue-800 rounded-3xl p-8 text-center text-white">
+        {/* <div className="bg-gradient-to-r from-blue-900 to-blue-800 rounded-3xl p-8 text-center text-white">
           <h3 className="text-2xl font-bold mb-3">
             Ready to Join the Community?
           </h3>
@@ -108,7 +108,7 @@ const Brands = () => {
           <button className="bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold text-sm transition-colors">
             Reserve Your Space Now
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );
