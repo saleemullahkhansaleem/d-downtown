@@ -2,6 +2,7 @@ import { useState } from "react";
 import { MapPin, Award, Calendar, ArrowRight, Sparkles } from "lucide-react";
 import { ContactForm } from "../common";
 import { backgroundImages } from "../../assets";
+import { approvalImages } from "../../assets/images/approvals";
 
 // Dynamic features data
 const keyFeatures = [
@@ -123,15 +124,24 @@ const Hero = () => {
           {/* Right Content - Visual */}
           <div className="relative animate-fade-in-up delay-300">
             <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-6 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 group">
-              <img
-                src={backgroundImages.hero}
-                alt="D-DOWNTOWN Commercial Plaza"
-                className="w-full h-80 object-cover rounded-2xl"
-              />
-              <div className="mt-6 space-y-4 relative">
-                <div className="absolute -top-4 -right-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+              <div className="relative">
+                <img
+                  src={backgroundImages.hero}
+                  alt="D-DOWNTOWN Commercial Plaza"
+                  className="w-full h-80 object-cover rounded-2xl"
+                />
+                <div className="absolute -bottom-10 right-6 text-white overflow-hidden rounded-full shadow-xl">
+                  <img
+                    src={approvalImages.rdaStamp}
+                    alt="RDA Approval Stamp"
+                    className="w-24 h-24 object-contain"
+                  />
+                </div>
+                <div className="absolute top-2 right-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
                   10 Plazas
                 </div>
+              </div>
+              <div className="mt-6 space-y- relative">
                 <h3 className="text-2xl font-bold text-white">
                   Modern Commercial Plazas
                 </h3>
@@ -145,6 +155,7 @@ const Hero = () => {
             <div className="absolute -top-6 -left-6 bg-gradient-to-br from-blue-500 to-blue-600 text-white p-4 rounded-2xl shadow-xl animate-bounce">
               <Award className="w-8 h-8" />
             </div>
+
             <div className="absolute -bottom-6 -right-6 bg-gradient-to-br from-amber-500 to-amber-600 text-white p-4 rounded-2xl shadow-xl animate-pulse">
               <MapPin className="w-8 h-8" />
             </div>

@@ -1,5 +1,5 @@
-import React from "react";
 import { Award, CheckCircle, Shield, FileText } from "lucide-react";
+import { approvalImages } from "../../assets/images/approvals";
 
 const Approvals = () => {
   return (
@@ -35,18 +35,19 @@ const Approvals = () => {
 
           {/* RDA Approval */}
           <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-6 rounded-2xl text-center">
-            <div className="bg-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
-              <Award className="w-6 h-6 text-amber-600" />
+            <div className="bg-white w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-3 overflow-hidden">
+              <img
+                src={approvalImages.rdaStamp}
+                alt="RDA Approval Stamp"
+                className="w-full h-full object-contain"
+              />
             </div>
-            <h3 className="text-lg font-bold text-amber-900 mb-2">
+            <h3 className="text-lg font-bold text-amber-900">
               RDA Approved
             </h3>
             <p className="text-amber-800 mb-3 text-sm">
               Rawalpindi Development Authority
             </p>
-            <div className="bg-white p-3 rounded-lg">
-              <Shield className="w-5 h-5 text-amber-600 mx-auto" />
-            </div>
           </div>
         </div>
 

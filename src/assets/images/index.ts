@@ -23,6 +23,10 @@ export const brandImages = {
   logos: brandLogos,
 };
 
+// Approval Images
+import { approvalImages as approvalImagesData } from "./approvals";
+export const approvalImages = approvalImagesData;
+
 // Default export for easy importing
 export default {
   team: { teamImages },
@@ -30,4 +34,5 @@ export default {
   commercial: commercialImages,
   location: locationImages,
   brands: brandImages,
+  approvals: approvalImages,
 };

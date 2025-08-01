@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Phone, MessageCircle, Mail, X } from "lucide-react";
+import { Phone, Mail, X, MessageSquareText } from "lucide-react";
 
 const FloatingContact = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -95,7 +95,7 @@ const FloatingContact = () => {
         {isOpen ? (
           <X className="w-6 h-6" />
         ) : (
-          <MessageCircle className="w-6 h-6" />
+          <MessageSquareText className="w-6 h-6" />
         )}
       </button>
     </div>
