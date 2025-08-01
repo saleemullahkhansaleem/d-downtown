@@ -18,8 +18,9 @@ export const locationImages = {
 };
 
 // Brand Images
+import { brandLogos } from "./brands";
 export const brandImages = {
-  // Add brand logos here
+  logos: brandLogos,
 };
 
 // Default export for easy importing

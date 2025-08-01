@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { Header, Footer } from "./components";
+import { FloatingContact } from "./components/common";
 import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
 import ProjectPortfolio from "./pages/ProjectPortfolio";
@@ -53,6 +54,7 @@ function App() {
             </Routes>
           </main>
           <Footer />
+          <FloatingContact />
         </div>
       </Router>
     </HelmetProvider>
