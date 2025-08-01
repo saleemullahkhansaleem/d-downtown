@@ -176,10 +176,6 @@ const Footer = () => {
                 <p className="text-gray-300 text-sm">UAN: 0313-055-2222</p>
               </div>
               <div className="flex items-center space-x-2.5">
-                <Globe className="w-4 h-4 text-amber-500" />
-                <p className="text-gray-300 text-sm">www.d-downtown.com</p>
-              </div>
-              <div className="flex items-center space-x-2.5">
                 <Mail className="w-4 h-4 text-amber-500" />
                 <p className="text-gray-300 text-sm">info@d-downtown.com</p>
               </div>

@@ -1,45 +1,41 @@
-import { Square, DollarSign, Eye } from "lucide-react";
+import { Square, DollarSign, Eye, Building2, CreditCard } from "lucide-react";
+import { Link } from "react-router-dom";
+import { commercialUnitImages } from "../../assets/images/commercial-units";
 
 const CommercialUnits = () => {
   const units = [
     {
-      image:
-        "https://images.pexels.com/photos/2767815/pexels-photo-2767815.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: commercialUnitImages.shop,
       area: "200 sq ft",
       pricing: "Starting from PKR 15 Lac",
       type: "Shop",
     },
     {
-      image:
-        "https://images.pexels.com/photos/6969831/pexels-photo-6969831.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: commercialUnitImages.retailStore,
       area: "400 sq ft",
       pricing: "Starting from PKR 28 Lac",
       type: "Retail Store",
     },
     {
-      image:
-        "https://images.pexels.com/photos/2291367/pexels-photo-2291367.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: commercialUnitImages.restaurant,
       area: "600 sq ft",
       pricing: "Starting from PKR 40 Lac",
       type: "Restaurant",
     },
     {
-      image:
-        "https://images.pexels.com/photos/2788792/pexels-photo-2788792.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: commercialUnitImages.cafe,
       area: "300 sq ft",
       pricing: "Starting from PKR 22 Lac",
       type: "Cafe",
     },
     {
-      image:
-        "https://images.pexels.com/photos/3621220/pexels-photo-3621220.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: commercialUnitImages.brandOutlet,
       area: "800 sq ft",
       pricing: "Starting from PKR 55 Lac",
       type: "Brand Outlet",
     },
     {
-      image:
-        "https://images.pexels.com/photos/2539462/pexels-photo-2539462.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: commercialUnitImages.officeSpace,
       area: "500 sq ft",
       pricing: "Starting from PKR 35 Lac",
       type: "Office Space",
@@ -69,15 +65,8 @@ const CommercialUnits = () => {
                 <img
                   src={unit.image}
                   alt={unit.type}
-                  className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-300"
+                  className="w-full h-56 object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-3 left-3 right-3">
-                    <button className="w-full bg-white/90 backdrop-blur-sm text-gray-900 py-1.5 rounded-lg font-semibold hover:bg-white transition-colors text-sm">
-                      View Details
-                    </button>
-                  </div>
-                </div>
               </div>
 
               <div className="p-5">
@@ -106,13 +95,86 @@ const CommercialUnits = () => {
                     </span>
                   </div>
                 </div>
-
-                <button className="w-full mt-4 bg-blue-900 hover:bg-blue-800 text-white py-2.5 rounded-lg font-semibold transition-colors text-sm">
-                  Get More Info
-                </button>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* CTA Section */}
+        <div className="mt-12 grid md:grid-cols-2 gap-6">
+          {/* Floor-wise Diversion CTA */}
+          <Link
+            to="/project-portfolio"
+            className="group bg-gradient-to-r from-blue-900 to-blue-800 rounded-2xl p-6 text-white hover:from-blue-800 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+          >
+            <div className="flex items-center space-x-4">
+              <div className="bg-white/20 p-3 rounded-xl group-hover:bg-white/30 transition-colors">
+                <Building2 className="w-8 h-8" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl font-bold mb-2">Floor-wise Diversion</h3>
+                <p className="text-blue-100 text-sm leading-relaxed">
+                  Explore detailed floor plans and commercial plaza layout with
+                  complete area breakdowns
+                </p>
+              </div>
+            </div>
+            <div className="mt-4 flex items-center text-blue-100 group-hover:text-white transition-colors">
+              <span className="text-sm font-semibold">
+                View Project Portfolio
+              </span>
+              <svg
+                className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </div>
+          </Link>
+
+          {/* Pricing CTA */}
+          <Link
+            to="/payment-pricing"
+            className="group bg-gradient-to-r from-amber-600 to-amber-700 rounded-2xl p-6 text-white hover:from-amber-500 hover:to-amber-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+          >
+            <div className="flex items-center space-x-4">
+              <div className="bg-white/20 p-3 rounded-xl group-hover:bg-white/30 transition-colors">
+                <CreditCard className="w-8 h-8" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl font-bold mb-2">Payment & Pricing</h3>
+                <p className="text-amber-100 text-sm leading-relaxed">
+                  Get detailed pricing information, payment plans, and
+                  investment options
+                </p>
+              </div>
+            </div>
+            <div className="mt-4 flex items-center text-amber-100 group-hover:text-white transition-colors">
+              <span className="text-sm font-semibold">
+                View Pricing Details
+              </span>
+              <svg
+                className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </div>
+          </Link>
         </div>
 
         <div className="mt-12 text-center">

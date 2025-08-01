@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import {
   Building2,
   Zap,
@@ -19,11 +20,33 @@ import {
   Square,
   ChevronRight,
   Phone,
+  X,
 } from "lucide-react";
 import { PageHero, CTASection, SEO } from "../components";
 import { floorPlanImages } from "../assets/images";
 
 const ProjectPortfolio = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedFloor, setSelectedFloor] = useState<string>("");
+  const [zoom, setZoom] = useState(1);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  // Prevent body scrolling when dialog is open
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    // Cleanup function to restore scrolling when component unmounts
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedImage]);
+
   const unitTypes = [
     { name: "Clothing And Fashion Brands", icon: ShoppingBag },
     { name: "Cafés & Restaurants", icon: Coffee },
@@ -155,6 +178,24 @@ const ProjectPortfolio = () => {
       color: "from-amber-600 to-amber-800",
       icon: Building2,
       image: floorPlanImages.secondFloor,
+    },
+    {
+      floor: "Roof Top",
+      shops: 12,
+      pricing: "PKR 25,000/Sq. Ft",
+      description:
+        "The rooftop offers a unique outdoor commercial space perfect for rooftop restaurants, cafes, event venues, and recreational facilities. With panoramic views and open-air atmosphere, it's ideal for businesses that want to create memorable experiences for their customers.",
+      areas: [
+        { shop: "Restaurant Area 1", area: "450 Sq. ft" },
+        { shop: "Restaurant Area 2", area: "380 Sq. ft" },
+        { shop: "Cafe Zone", area: "320 Sq. ft" },
+        { shop: "Event Space", area: "600 Sq. ft" },
+        { shop: "Recreation Area", area: "280 Sq. ft" },
+        { shop: "Utility & Storage", area: "150 Sq. ft" },
+      ],
+      color: "from-indigo-600 to-indigo-800",
+      icon: Building2,
+      image: floorPlanImages.roofTop,
     },
   ];
 
@@ -316,55 +357,55 @@ const ProjectPortfolio = () => {
       </section>
 
       {/* Property Layout Section */}
-      <section className="py-12 px-4 bg-gradient-to-br from-blue-50 via-gray-50 to-amber-50 relative overflow-hidden">
+      <section className="py-8 px-4 bg-gradient-to-br from-blue-50 via-gray-50 to-amber-50 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-100/20 to-amber-100/20"></div>
         <div className="container mx-auto max-w-6xl relative z-10">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-100 to-blue-100 px-4 py-2 rounded-full mb-4">
-              <Building2 className="w-4 h-4 text-purple-600" />
-              <span className="font-semibold text-purple-900 text-sm">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-100 to-blue-100 px-3 py-1.5 rounded-full mb-3">
+              <Building2 className="w-3.5 h-3.5 text-purple-600" />
+              <span className="font-semibold text-purple-900 text-xs">
                 Floor Plans
               </span>
             </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               Strategic Property Layout
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base text-gray-600 max-w-2xl mx-auto">
               D-Downtown is designed across multiple levels to suit a variety of
               business types. Each floor offers practical layouts, easy access,
               and strong visibility to help your business grow.
             </p>
           </div>
 
-          <div className="space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {propertyLayouts.map((layout, index) => (
               <div
                 key={index}
-                className="group bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-white/50 hover:shadow-xl transition-all duration-300"
+                className="group bg-white/90 backdrop-blur-sm rounded-xl shadow-md overflow-hidden border border-white/50 hover:shadow-lg transition-all duration-300"
               >
                 <div
-                  className={`bg-gradient-to-r ${layout.color} p-6 text-white relative overflow-hidden`}
+                  className={`bg-gradient-to-r ${layout.color} p-4 text-white relative overflow-hidden`}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent"></div>
                   <div className="relative z-10">
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-4">
-                        <div className="p-3 bg-white/20 rounded-xl backdrop-blur-sm group-hover:scale-105 transition-transform duration-300">
-                          <layout.icon className="w-8 h-8" />
+                      <div className="flex items-center space-x-3">
+                        <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm group-hover:scale-105 transition-transform duration-300">
+                          <layout.icon className="w-6 h-6" />
                         </div>
                         <div>
-                          <h3 className="text-2xl font-bold mb-2">
+                          <h3 className="text-lg font-bold mb-1">
                             {layout.floor}
                           </h3>
-                          <div className="flex flex-wrap items-center gap-4">
-                            <span className="flex items-center space-x-2 bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm text-sm">
-                              <Store className="w-4 h-4" />
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span className="flex items-center space-x-1 bg-white/20 px-2 py-0.5 rounded-full backdrop-blur-sm text-xs">
+                              <Store className="w-3 h-3" />
                               <span className="font-semibold">
                                 {layout.shops} Shops
                               </span>
                             </span>
-                            <span className="flex items-center space-x-2 bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm text-sm">
-                              <TrendingUp className="w-4 h-4" />
+                            <span className="flex items-center space-x-1 bg-white/20 px-2 py-0.5 rounded-full backdrop-blur-sm text-xs">
+                              <TrendingUp className="w-3 h-3" />
                               <span className="font-semibold">
                                 {layout.pricing}
                               </span>
@@ -376,24 +417,38 @@ const ProjectPortfolio = () => {
                   </div>
                 </div>
 
-                <div className="p-6">
-                  <p className="text-gray-700 mb-6 leading-relaxed">
+                <div className="p-4">
+                  <p className="text-gray-700 mb-4 leading-relaxed text-sm">
                     {layout.description}
                   </p>
 
                   {/* Full Width Floor Plan Image */}
-                  <div className="mb-6">
-                    <div className="relative w-full rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+                  <div className="mb-4">
+                    <div
+                      className="relative w-full rounded-lg overflow-hidden shadow-md border border-gray-200 cursor-pointer group"
+                      onClick={() => {
+                        setSelectedImage(layout.image);
+                        setSelectedFloor(layout.floor);
+                      }}
+                    >
                       <img
                         src={layout.image}
                         alt={`${layout.floor} Floor Plan`}
-                        className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                      <div className="absolute bottom-4 left-4">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent group-hover:from-black/30 transition-all duration-300"></div>
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg">
-                          <span className="font-bold text-gray-900 text-sm">
+                          <span className="font-bold text-gray-900 text-sm flex items-center space-x-2">
+                            <Eye className="w-4 h-4" />
+                            <span>Click to View</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div className="absolute bottom-3 left-3">
+                        <div className="bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-md shadow-md">
+                          <span className="font-bold text-gray-900 text-xs">
                             {layout.floor} Floor Plan
                           </span>
                         </div>
@@ -401,23 +456,23 @@ const ProjectPortfolio = () => {
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-6 border border-gray-100">
-                    <h4 className="font-bold text-gray-900 mb-4 flex items-center space-x-2 text-lg">
-                      <div className="p-2 bg-blue-100 rounded-lg">
-                        <MapPin className="w-5 h-5 text-blue-600" />
+                  <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-4 border border-gray-100">
+                    <h4 className="font-bold text-gray-900 mb-3 flex items-center space-x-2 text-base">
+                      <div className="p-1.5 bg-blue-100 rounded-md">
+                        <MapPin className="w-4 h-4 text-blue-600" />
                       </div>
                       <span>Net Size/Area Breakdown</span>
                     </h4>
-                    <div className="grid gap-3">
+                    <div className="grid gap-2">
                       {layout.areas.map((area, areaIndex) => (
                         <div
                           key={areaIndex}
-                          className="flex justify-between items-center p-3 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300"
+                          className="flex justify-between items-center p-2 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300"
                         >
-                          <span className="font-semibold text-gray-800 text-sm">
+                          <span className="font-semibold text-gray-800 text-xs">
                             {area.shop}
                           </span>
-                          <span className="font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full text-sm">
+                          <span className="font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full text-xs">
                             {area.area}
                           </span>
                         </div>
@@ -528,6 +583,169 @@ const ProjectPortfolio = () => {
           to: "to-amber-900",
         }}
       />
+
+      {/* Image Dialog/Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              setSelectedImage(null);
+              setSelectedFloor("");
+              setZoom(1);
+              setPosition({ x: 0, y: 0 });
+            }
+          }}
+        >
+          <div className="relative max-w-4xl w-full max-h-[90vh] bg-white rounded-2xl shadow-2xl overflow-hidden">
+            {/* Header */}
+            <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gradient-to-r from-gray-50 to-blue-50">
+              <h3 className="text-xl font-bold text-gray-900 flex items-center space-x-2">
+                <Building2 className="w-5 h-5 text-blue-600" />
+                <span>{selectedFloor} Floor Plan</span>
+              </h3>
+              <div className="flex items-center space-x-2">
+                {/* Zoom Controls */}
+                <div className="flex items-center space-x-1 bg-gray-100 rounded-lg p-1">
+                  <button
+                    onClick={() => setZoom(Math.max(0.5, zoom - 0.25))}
+                    className="p-1 hover:bg-gray-200 rounded text-gray-600 hover:text-gray-800 transition-colors"
+                    disabled={zoom <= 0.5}
+                  >
+                    <span className="text-sm font-bold">−</span>
+                  </button>
+                  <span className="px-2 text-sm font-medium text-gray-700 min-w-[3rem] text-center">
+                    {Math.round(zoom * 100)}%
+                  </span>
+                  <button
+                    onClick={() => setZoom(Math.min(3, zoom + 0.25))}
+                    className="p-1 hover:bg-gray-200 rounded text-gray-600 hover:text-gray-800 transition-colors"
+                    disabled={zoom >= 3}
+                  >
+                    <span className="text-sm font-bold">+</span>
+                  </button>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedImage(null);
+                    setSelectedFloor("");
+                    setZoom(1);
+                    setPosition({ x: 0, y: 0 });
+                  }}
+                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors duration-200"
+                >
+                  <X className="w-6 h-6 text-gray-600" />
+                </button>
+              </div>
+            </div>
+
+            {/* Image Container */}
+            <div className="relative overflow-hidden bg-gray-100">
+              <div
+                className="relative w-full h-[70vh] overflow-hidden cursor-grab active:cursor-grabbing"
+                onMouseDown={(e) => {
+                  if (zoom > 1) {
+                    e.preventDefault();
+                    setIsDragging(true);
+                    setDragStart({
+                      x: e.clientX - position.x,
+                      y: e.clientY - position.y,
+                    });
+                  }
+                }}
+                onMouseMove={(e) => {
+                  if (isDragging && zoom > 1) {
+                    e.preventDefault();
+                    const newX = e.clientX - dragStart.x;
+                    const newY = e.clientY - dragStart.y;
+
+                    // Calculate bounds to prevent dragging too far
+                    const maxX = (zoom - 1) * 100; // Adjust based on zoom level
+                    const maxY = (zoom - 1) * 100;
+
+                    setPosition({
+                      x: Math.max(-maxX, Math.min(maxX, newX)),
+                      y: Math.max(-maxY, Math.min(maxY, newY)),
+                    });
+                  }
+                }}
+                onMouseUp={(e) => {
+                  e.preventDefault();
+                  setIsDragging(false);
+                }}
+                onMouseLeave={(e) => {
+                  e.preventDefault();
+                  setIsDragging(false);
+                }}
+                onWheel={(e) => {
+                  e.preventDefault();
+                  const delta = e.deltaY > 0 ? -0.1 : 0.1;
+                  const newZoom = Math.max(0.5, Math.min(3, zoom + delta));
+                  setZoom(newZoom);
+                  if (newZoom <= 1) {
+                    setPosition({ x: 0, y: 0 });
+                  }
+                }}
+              >
+                <img
+                  src={selectedImage}
+                  alt={`${selectedFloor} Floor Plan`}
+                  className="w-full h-full object-contain"
+                  style={{
+                    transform: `scale(${zoom}) translate(${position.x}px, ${position.y}px)`,
+                    transformOrigin: "center",
+                    transition: isDragging ? "none" : "transform 0.1s ease-out",
+                  }}
+                  loading="lazy"
+                />
+              </div>
+
+              {/* Zoom Instructions */}
+              <div className="absolute bottom-4 right-4 bg-black/70 text-white px-3 py-1.5 rounded-lg backdrop-blur-sm text-sm">
+                <span>Scroll to zoom • Drag to pan when zoomed</span>
+              </div>
+            </div>
+
+            {/* Footer */}
+            <div className="p-4 border-t border-gray-200 bg-gray-50">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-4">
+                  <div className="flex items-center space-x-2 text-sm text-gray-600">
+                    <Eye className="w-4 h-4" />
+                    <span>High Resolution View</span>
+                  </div>
+                  <div className="flex items-center space-x-2 text-sm text-gray-600">
+                    <Building2 className="w-4 h-4" />
+                    <span>Detailed Floor Plan</span>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <button
+                    onClick={() => {
+                      setZoom(1);
+                      setPosition({ x: 0, y: 0 });
+                    }}
+                    className="bg-gray-600 text-white px-3 py-1.5 rounded-lg hover:bg-gray-700 transition-colors duration-200 text-sm font-semibold"
+                  >
+                    Reset View
+                  </button>
+                  <button
+                    onClick={() => {
+                      setSelectedImage(null);
+                      setSelectedFloor("");
+                      setZoom(1);
+                      setPosition({ x: 0, y: 0 });
+                    }}
+                    className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 text-sm font-semibold"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

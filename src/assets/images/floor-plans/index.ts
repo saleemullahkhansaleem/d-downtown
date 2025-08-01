@@ -5,4 +5,5 @@ export const floorPlanImages = {
   mezzanine: "/src/assets/images/floor-plans/mezzanine-floor.webp",
   firstFloor: "/src/assets/images/floor-plans/first-floor.webp",
   secondFloor: "/src/assets/images/floor-plans/second-floor.webp",
+  roofTop: "/src/assets/images/floor-plans/roof-top.webp",
 };

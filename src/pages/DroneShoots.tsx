@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import {
   Camera,
   Video,
@@ -10,10 +11,64 @@ import {
   Award,
   CheckCircle,
   MessageSquareText,
+  X,
+  Volume2,
+  VolumeX,
+  Maximize2,
+  Minimize2,
 } from "lucide-react";
 import { PageHero, CTASection, SEO } from "../components";
+import { videoAssets, videoMetadata } from "../assets/videos";
 
 const DroneShoots = () => {
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const [videoDurations, setVideoDurations] = useState<{
+    [key: string]: string;
+  }>({});
+
+  // Function to format duration from seconds
+  const formatDuration = (seconds: number): string => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+    return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
+  };
+
+  // Function to get video duration
+  const getVideoDuration = (videoUrl: string, videoId: string) => {
+    const video = document.createElement("video");
+    video.src = videoUrl;
+    video.preload = "metadata";
+
+    video.onloadedmetadata = () => {
+      const duration = formatDuration(video.duration);
+      setVideoDurations((prev) => ({
+        ...prev,
+        [videoId]: duration,
+      }));
+    };
+  };
+
+  // Load video durations on component mount
+  useEffect(() => {
+    visualContent.forEach((content) => {
+      getVideoDuration(content.videoUrl, content.id);
+    });
+  }, []);
+
+  // Prevent body scrolling when video modal is open
+  useEffect(() => {
+    if (selectedVideo) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedVideo]);
   const droneServices = [
     {
       icon: Camera,
@@ -48,36 +103,22 @@ const DroneShoots = () => {
 
   const visualContent = [
     {
-      title: "D-DOWNTOWN Aerial Overview",
-      description:
-        "Breathtaking aerial view showcasing all 6 commercial plazas and their strategic layout",
-      duration: "2:45",
-      views: "1.2K",
-      thumbnail: "bg-gradient-to-br from-blue-500 to-purple-600",
+      id: "aerialOverview",
+      title: videoMetadata.aerialOverview.title,
+      description: videoMetadata.aerialOverview.description,
+      videoUrl: videoAssets.aerialOverview,
     },
     {
-      title: "Commercial Units Walkthrough",
-      description:
-        "Detailed visual tour of our premium commercial spaces and modern infrastructure",
-      duration: "4:12",
-      views: "856",
-      thumbnail: "bg-gradient-to-br from-amber-500 to-orange-600",
+      id: "commercialWalkthrough",
+      title: videoMetadata.commercialWalkthrough.title,
+      description: videoMetadata.commercialWalkthrough.description,
+      videoUrl: videoAssets.commercialWalkthrough,
     },
     {
-      title: "Location & Connectivity",
-      description:
-        "Comprehensive overview of our strategic location near Askari 14 and Adyala Road",
-      duration: "3:28",
-      views: "1.5K",
-      thumbnail: "bg-gradient-to-br from-green-500 to-teal-600",
-    },
-    {
-      title: "Infrastructure Highlights",
-      description:
-        "Showcasing our modern amenities including underground electricity and centralized HVAC",
-      duration: "2:15",
-      views: "723",
-      thumbnail: "bg-gradient-to-br from-red-500 to-pink-600",
+      id: "infrastructureProgress",
+      title: videoMetadata.infrastructureProgress.title,
+      description: videoMetadata.infrastructureProgress.description,
+      videoUrl: videoAssets.infrastructureProgress,
     },
   ];
 
@@ -209,15 +250,27 @@ const DroneShoots = () => {
                   className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300"
                 >
                   <div
-                    className={`${content.thumbnail} w-full h-48 rounded-xl mb-4 relative overflow-hidden`}
+                    className="w-full h-48 rounded-xl mb-4 relative overflow-hidden cursor-pointer group bg-gray-200"
+                    onClick={() => setSelectedVideo(content.videoUrl)}
                   >
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="bg-white/20 backdrop-blur-sm rounded-full p-4">
+                    <img
+                      src={
+                        content.id === "aerialOverview"
+                          ? videoAssets.aerialThumbnail
+                          : content.id === "commercialWalkthrough"
+                          ? videoAssets.walkthroughThumbnail
+                          : videoAssets.infrastructureThumbnail
+                      }
+                      alt={content.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <div className="bg-white/20 backdrop-blur-sm rounded-full p-4 group-hover:bg-white/30 transition-colors">
                         <Play className="w-8 h-8 text-white" />
                       </div>
                     </div>
                     <div className="absolute bottom-2 right-2 bg-black/50 text-white px-2 py-1 rounded text-sm">
-                      {content.duration}
+                      {videoDurations[content.id] || "Loading..."}
                     </div>
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
@@ -227,15 +280,15 @@ const DroneShoots = () => {
                     {content.description}
                   </p>
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-4 text-sm text-gray-500">
-                      <div className="flex items-center space-x-1">
-                        <Eye className="w-4 h-4" />
-                        <span>{content.views}</span>
-                      </div>
+                    <div className="text-sm text-gray-500">
+                      Duration: {videoDurations[content.id] || "Loading..."}
                     </div>
                     <div className="flex space-x-2">
-                      <button className="p-2 bg-blue-100 rounded-lg hover:bg-blue-200 transition-colors">
-                        <Download className="w-4 h-4 text-blue-600" />
+                      <button
+                        className="p-2 bg-blue-100 rounded-lg hover:bg-blue-200 transition-colors"
+                        onClick={() => setSelectedVideo(content.videoUrl)}
+                      >
+                        <Play className="w-4 h-4 text-blue-600" />
                       </button>
                       <button className="p-2 bg-green-100 rounded-lg hover:bg-green-200 transition-colors">
                         <Share2 className="w-4 h-4 text-green-600" />
@@ -379,6 +432,77 @@ const DroneShoots = () => {
           icon: Download,
         }}
       />
+
+      {/* Video Modal */}
+      {selectedVideo && (
+        <div
+          className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              setSelectedVideo(null);
+              setIsFullscreen(false);
+              setIsMuted(false);
+            }
+          }}
+        >
+          <div
+            className={`relative bg-black rounded-2xl shadow-2xl overflow-hidden transition-all duration-300 ${
+              isFullscreen ? "w-full h-full" : "max-w-6xl w-full max-h-[90vh]"
+            }`}
+          >
+            {/* Video Header */}
+            <div className="absolute top-4 right-4 z-10 flex items-center space-x-2">
+              <button
+                onClick={() => setIsMuted(!isMuted)}
+                className="p-2 bg-white/20 backdrop-blur-sm rounded-lg text-white hover:bg-white/30 transition-colors"
+              >
+                {isMuted ? (
+                  <VolumeX className="w-5 h-5" />
+                ) : (
+                  <Volume2 className="w-5 h-5" />
+                )}
+              </button>
+              <button
+                onClick={() => setIsFullscreen(!isFullscreen)}
+                className="p-2 bg-white/20 backdrop-blur-sm rounded-lg text-white hover:bg-white/30 transition-colors"
+              >
+                {isFullscreen ? (
+                  <Minimize2 className="w-5 h-5" />
+                ) : (
+                  <Maximize2 className="w-5 h-5" />
+                )}
+              </button>
+              <button
+                onClick={() => {
+                  setSelectedVideo(null);
+                  setIsFullscreen(false);
+                  setIsMuted(false);
+                }}
+                className="p-2 bg-white/20 backdrop-blur-sm rounded-lg text-white hover:bg-white/30 transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Video Player */}
+            <video
+              src={selectedVideo}
+              className="w-full h-full object-contain"
+              controls
+              autoPlay
+              muted={isMuted}
+              onLoadedMetadata={(e) => {
+                // Auto-play when video loads
+                e.currentTarget.play().catch(() => {
+                  // Handle autoplay restrictions
+                });
+              }}
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

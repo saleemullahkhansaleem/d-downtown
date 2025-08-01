@@ -7,8 +7,9 @@ import { floorPlanImages } from "./floor-plans";
 export { floorPlanImages };
 
 // Commercial Units Images
+import { commercialUnitImages } from "./commercial-units";
 export const commercialImages = {
-  // Add commercial unit images here
+  units: commercialUnitImages,
 };
 
 // Location Images
