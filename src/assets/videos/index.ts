@@ -1,16 +1,23 @@
 // Video Assets
+import aerialOverviewVideo from "./aerial-overview.mp4";
+import commercialWalkthroughVideo from "./commercial-walkthrough.mp4";
+import infrastructureProgressVideo from "./infrastructure-progress.mp4";
+
+// Thumbnail images for videos
+import aerialThumbnailImage from "./thumbnails/aerial-thumbnail.webp";
+import walkthroughThumbnailImage from "./thumbnails/walkthrough-thumbnail.webp";
+import infrastructureThumbnailImage from "./thumbnails/infrastructure-thumbnail.webp";
+
 export const videoAssets = {
   // Main drone videos
-  aerialOverview: "/src/assets/videos/aerial-overview.mp4",
-  commercialWalkthrough: "/src/assets/videos/commercial-walkthrough.mp4",
-  infrastructureProgress: "/src/assets/videos/infrastructure-progress.mp4",
+  aerialOverview: aerialOverviewVideo,
+  commercialWalkthrough: commercialWalkthroughVideo,
+  infrastructureProgress: infrastructureProgressVideo,
 
   // Thumbnail images for videos
-  aerialThumbnail: "/src/assets/videos/thumbnails/aerial-thumbnail.webp",
-  walkthroughThumbnail:
-    "/src/assets/videos/thumbnails/walkthrough-thumbnail.webp",
-  infrastructureThumbnail:
-    "/src/assets/videos/thumbnails/infrastructure-thumbnail.webp",
+  aerialThumbnail: aerialThumbnailImage,
+  walkthroughThumbnail: walkthroughThumbnailImage,
+  infrastructureThumbnail: infrastructureThumbnailImage,
 };
 
 // Video metadata
