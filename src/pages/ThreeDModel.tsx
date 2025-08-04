@@ -3,10 +3,6 @@ import {
   Layers,
   Building2,
   MapPin,
-  RotateCcw,
-  ZoomIn,
-  ZoomOut,
-  Move,
   Smartphone,
   Monitor,
   Globe,
@@ -194,7 +190,7 @@ const ThreeDModel = () => {
 
           <div className="bg-gradient-to-br from-gray-800/80 to-blue-800/80 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10 shadow-xl mb-12">
             <div className="max-w-2xl mx-auto">
-              <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl mb-8 shadow-lg border border-white/20">
+              <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl shadow-lg border border-white/20">
                 <div className="bg-white/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
                   <Eye className="w-10 h-10 text-white" />
                 </div>
@@ -357,63 +353,6 @@ const ThreeDModel = () => {
                 <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-amber-500 rounded-full w-0 group-hover:w-full transition-all duration-500"></div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Interactive Demo Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10"></div>
-        <div className="container mx-auto max-w-4xl relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Experience the Future</h2>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              While our full 3D model is in development, explore our current
-              visualizations and get a preview of what's to come.
-            </p>
-          </div>
-
-          <div className="bg-gradient-to-br from-gray-800/80 to-blue-800/80 backdrop-blur-sm rounded-2xl p-8 border border-white/10 shadow-xl">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="bg-blue-500/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <Download className="w-8 h-8 text-blue-300" />
-                </div>
-                <h3 className="font-bold mb-2">Download Brochure</h3>
-                <p className="text-gray-300 text-sm mb-4">
-                  Get detailed information about D-DOWNTOWN
-                </p>
-                <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 text-sm font-semibold">
-                  Download PDF
-                </button>
-              </div>
-
-              <div className="text-center">
-                <div className="bg-purple-500/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <Share2 className="w-8 h-8 text-purple-300" />
-                </div>
-                <h3 className="font-bold mb-2">Share Experience</h3>
-                <p className="text-gray-300 text-sm mb-4">
-                  Share D-DOWNTOWN with your team
-                </p>
-                <button className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors duration-200 text-sm font-semibold">
-                  Share Link
-                </button>
-              </div>
-
-              <div className="text-center">
-                <div className="bg-green-500/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <Phone className="w-8 h-8 text-green-300" />
-                </div>
-                <h3 className="font-bold mb-2">Contact Sales</h3>
-                <p className="text-gray-300 text-sm mb-4">
-                  Get personalized assistance
-                </p>
-                <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors duration-200 text-sm font-semibold">
-                  Contact Us
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </section>

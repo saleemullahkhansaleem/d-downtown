@@ -105,7 +105,7 @@ const Header = () => {
             <Logo size={40} className="h-10 text-blue-900" />
 
             <div className="">
-              <div className="text-lg font-black bg-gradient-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent leading-5">
+              <div className="text-lg font-black bg-gradient-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent leading-5 text-nowrap">
                 D{"-"}
                 <span className="bg-gradient-to-r from-amber-500 to-amber-600 bg-clip-text text-transparent">
                   DOWNTOWN

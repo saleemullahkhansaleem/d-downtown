@@ -12,7 +12,6 @@ import {
   Target,
   Phone,
   X,
-  ChevronRight,
 } from "lucide-react";
 import { PageHero, CTASection, SEO } from "../components";
 import { floorPlanImages } from "../assets/images";
@@ -338,7 +337,7 @@ const PropertyLayout = () => {
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent"></div>
                   <div className="relative z-10">
-                    <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3">
                         <div className="p-3 bg-white/20 rounded-lg backdrop-blur-sm group-hover:scale-105 transition-transform duration-300">
                           <layout.icon className="w-6 h-6" />
