@@ -8,6 +8,8 @@ import {
   FileText,
   HelpCircle,
   Camera,
+  Info,
+  Building,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Logo } from "../common";
@@ -19,11 +21,20 @@ const Header = () => {
     { href: "/", label: "Home", icon: null },
     {
       label: "About",
-      icon: Building2,
+      icon: Info,
       items: [
         { href: "/about-us", label: "About Us" },
         { href: "/our-team", label: "Our Team" },
-        { href: "/project-portfolio", label: "Project Portfolio" },
+      ],
+    },
+    {
+      label: "Portfolio",
+      icon: Building2,
+      items: [
+        { href: "/unit-types", label: "Unit Types" },
+        { href: "/amenities", label: "Amenities" },
+        { href: "/property-layout", label: "Property Layout" },
+        { href: "/3d-model", label: "3D Model" },
       ],
     },
     {
@@ -36,7 +47,7 @@ const Header = () => {
     },
     {
       label: "Services",
-      icon: Building2,
+      icon: Building,
       items: [
         { href: "/commercial-services", label: "Commercial Services" },
         { href: "/location-connectivity", label: "Location & Connectivity" },

@@ -4,7 +4,10 @@ import { Header, Footer } from "./components";
 import { FloatingContact } from "./components/common";
 import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
-import ProjectPortfolio from "./pages/ProjectPortfolio";
+import UnitTypes from "./pages/UnitTypes";
+import Amenities from "./pages/Amenities";
+import PropertyLayout from "./pages/PropertyLayout";
+import ThreeDModel from "./pages/ThreeDModel";
 import InvestmentModels from "./pages/InvestmentModels";
 import PaymentPricing from "./pages/PaymentPricing";
 import CommercialServices from "./pages/CommercialServices";
@@ -31,7 +34,10 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about-us" element={<AboutUs />} />
-              <Route path="/project-portfolio" element={<ProjectPortfolio />} />
+              <Route path="/unit-types" element={<UnitTypes />} />
+              <Route path="/amenities" element={<Amenities />} />
+              <Route path="/property-layout" element={<PropertyLayout />} />
+              <Route path="/3d-model" element={<ThreeDModel />} />
               <Route path="/investment-models" element={<InvestmentModels />} />
               <Route path="/payment-pricing" element={<PaymentPricing />} />
               <Route

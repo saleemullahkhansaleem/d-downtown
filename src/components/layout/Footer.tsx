@@ -76,10 +76,18 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    to="/project-portfolio"
+                    to="/unit-types"
                     className="text-gray-300 hover:text-white transition-colors text-sm"
                   >
-                    Portfolio
+                    Unit Types
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/amenities"
+                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                  >
+                    Amenities
                   </Link>
                 </li>
                 <li>
@@ -110,6 +118,14 @@ const Footer = () => {
               <ul className="space-y-0.5">
                 <li>
                   <Link
+                    to="/property-layout"
+                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                  >
+                    Property Layout
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     to="/location-connectivity"
                     className="text-gray-300 hover:text-white transition-colors text-sm"
                   >
@@ -138,6 +154,14 @@ const Footer = () => {
                     className="text-gray-300 hover:text-white transition-colors text-sm"
                   >
                     Drone Shoots
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/3d-model"
+                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                  >
+                    3D Model
                   </Link>
                 </li>
                 <li>
