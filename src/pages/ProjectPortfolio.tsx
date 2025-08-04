@@ -344,12 +344,12 @@ const ProjectPortfolio = () => {
                 <p className="text-gray-600 text-sm leading-relaxed">
                   {amenity.description}
                 </p>
-                <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {/* <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="flex items-center text-blue-600 font-semibold text-sm">
                     <span>Learn More</span>
                     <ChevronRight className="w-3 h-3 ml-1" />
                   </div>
-                </div>
+                </div> */}
               </div>
             ))}
           </div>
@@ -449,7 +449,7 @@ const ProjectPortfolio = () => {
                       <div className="absolute bottom-3 left-3">
                         <div className="bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-md shadow-md">
                           <span className="font-bold text-gray-900 text-xs">
-                            {layout.floor} Floor Plan
+                            {layout.floor} Plan
                           </span>
                         </div>
                       </div>

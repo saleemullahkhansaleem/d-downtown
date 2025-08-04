@@ -7,7 +7,6 @@ import {
   Play,
   Download,
   Share2,
-  Eye,
   Award,
   CheckCircle,
   MessageSquareText,
@@ -24,6 +23,8 @@ const DroneShoots = () => {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
+  const [isVideoLoading, setIsVideoLoading] = useState(false);
+  const [videoError, setVideoError] = useState<string | null>(null);
   const [videoDurations, setVideoDurations] = useState<{
     [key: string]: string;
   }>({});
@@ -446,7 +447,7 @@ const DroneShoots = () => {
           }}
         >
           <div
-            className={`relative bg-black rounded-2xl shadow-2xl overflow-hidden transition-all duration-300 ${
+            className={`relative bg-black rounded-2xl shadow-2xl overflow-hidden transition-all duration-300 object-contain h-full ${
               isFullscreen ? "w-full h-full" : "max-w-6xl w-full max-h-[90vh]"
             }`}
           >
@@ -477,6 +478,8 @@ const DroneShoots = () => {
                   setSelectedVideo(null);
                   setIsFullscreen(false);
                   setIsMuted(false);
+                  setIsVideoLoading(false);
+                  setVideoError(null);
                 }}
                 className="p-2 bg-white/20 backdrop-blur-sm rounded-lg text-white hover:bg-white/30 transition-colors"
               >
@@ -491,15 +494,65 @@ const DroneShoots = () => {
               controls
               autoPlay
               muted={isMuted}
+              preload="auto"
+              controlsList="nodownload"
+              onLoadStart={() => {
+                setIsVideoLoading(true);
+                setVideoError(null);
+              }}
               onLoadedMetadata={(e) => {
+                setIsVideoLoading(false);
                 // Auto-play when video loads
                 e.currentTarget.play().catch(() => {
                   // Handle autoplay restrictions
                 });
               }}
+              onCanPlay={(e) => {
+                setIsVideoLoading(false);
+                // Force controls to be visible
+                e.currentTarget.controls = true;
+              }}
+              onError={(e) => {
+                setIsVideoLoading(false);
+                setVideoError("Failed to load video. Please try again.");
+                console.error("Video loading error:", e);
+              }}
             >
               Your browser does not support the video tag.
             </video>
+
+            {/* Loading Overlay */}
+            {isVideoLoading && (
+              <div className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+                <div className="text-white text-center">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
+                  <p className="text-sm">Loading video...</p>
+                </div>
+              </div>
+            )}
+
+            {/* Error Overlay */}
+            {videoError && (
+              <div className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+                <div className="text-white text-center bg-red-600/80 p-6 rounded-lg">
+                  <p className="text-sm mb-4">{videoError}</p>
+                  <button
+                    onClick={() => {
+                      setVideoError(null);
+                      setIsVideoLoading(true);
+                      // Reload the video
+                      const video = document.querySelector("video");
+                      if (video) {
+                        video.load();
+                      }
+                    }}
+                    className="bg-white text-red-600 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-100 transition-colors"
+                  >
+                    Retry
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}
