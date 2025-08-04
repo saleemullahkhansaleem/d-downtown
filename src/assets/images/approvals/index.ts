@@ -1,5 +1,7 @@
 // Approval Images
+import rdaStampImage from "./rda-stamp.webp";
+
 export const approvalImages = {
-  rdaStamp: "/src/assets/images/approvals/rda-stamp.webp",
-  nocLogo: "/src/assets/images/approvals/noc-logo.webp",
+  rdaStamp: rdaStampImage,
+  // nocLogo: nocLogoImage, // Uncomment when noc-logo.webp is available
 };
