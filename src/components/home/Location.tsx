@@ -45,7 +45,7 @@ const Location = () => {
               <img
                 src="https://images.pexels.com/photos/6634154/pexels-photo-6634154.jpeg?auto=compress&cs=tinysrgb&w=800"
                 alt="Location Map"
-                className="w-full h-72 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-72 object-cover rounded-2xl group-hover:scale-[1.01] transition-transform duration-500"
               />
               <div className="mt-4 flex items-center justify-center space-x-4">
                 <div className="flex items-center space-x-2 bg-blue-50 px-3 py-1.5 rounded-full">
