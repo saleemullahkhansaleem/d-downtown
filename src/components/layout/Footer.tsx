@@ -212,8 +212,9 @@ const Footer = () => {
               © 2025 D-DOWNTOWN. All rights reserved.
             </p>{" "}
             {/* Developer Credit */}
-            <div className="text-gray-400">
-              <MrCard />
+            <div className="text-gray-400 text-xs">
+              {/* <MrCard /> */}
+              Develop by Creative Garage
             </div>
             <div className="flex space-x-4 mt-3 md:mt-0">
               <Link
