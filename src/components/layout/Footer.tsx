@@ -7,7 +7,7 @@ import {
   Linkedin,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Logo, MrCard } from "../common";
+import { Logo } from "../common";
 
 const Footer = () => {
   return (
@@ -213,7 +213,6 @@ const Footer = () => {
             </p>{" "}
             {/* Developer Credit */}
             <div className="text-gray-400 text-xs">
-              {/* <MrCard /> */}
               Develop by Creative Garage
             </div>
             <div className="flex space-x-4 mt-3 md:mt-0">
